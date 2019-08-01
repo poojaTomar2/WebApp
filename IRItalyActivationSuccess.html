@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<style type="text/css">
+		.image {
+			height: 150px;
+			width: 150px;
+		}
+
+		body {
+			background-color: #ffffff;
+		}
+
+		.jumbotron.text-center {
+			background-color: #ffffff;
+		}
+
+		.thumbnail {
+			background: #ddd0;
+			/*border: 0px solid #ddd;*/
+		}
+
+		h2 {
+			display: block;
+			font-size: 1.5em;
+			margin-block-start: 0.83em;
+			margin-block-end: 0.83em;
+			margin-inline-start: 0px;
+			margin-inline-end: 0px;
+			font-weight: bold;
+			color: #000000;
+			padding: 12px;
+		}
+	</style>
+
+
+</head>
+<body>
+
+	<div class="jumbotron text-center">
+		<div id="boxShadow">
+			<img src="images/IRCocacolaLogo.png" alt="IRCocacolaLogo" height="100%" width="100%" / >
+		</div>
+		<h2 id="defaultMsg">
+			Congratulazioni ! </br >
+			Hai appena accettato di partecipare a Scatta e Ri-scatta
+			Il programma di incentivazione itinerante di Coca-Cola
+			Scarica subito l’App per vedere cosa ti aspetta di interessante
+		</h2>
+		<h2 id="alreadyactiveMsg">
+			questo utente è già stato attivato
+		</h2>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<!-- column -->
+			<div class="col-sm-2">
+				<div class="thumbnail">
+					<img class="image" src="images/AndroidLogo.png" alt="android" style="height: 150px; width: 150px">
+				</div>
+			</div>
+			<!-- column -->
+			<div class="col-sm-2">
+				<div class="thumbnail">
+					<img class="image" src="images/AndroidQR.png" alt="androidQR" style="height: 150px; width: 150px">
+				</div>
+			</div>
+			<!-- column -->
+			<div class="col-sm-2">
+				<div class="thumbnail">
+					<a href="https://play.google.com/store/apps/details?id=com.ebest.ir"><img class="image" src="images/googleplay.png" alt="googlePlay" style="height: 87px; width: 150px; margin: 14% 14%;"></a>
+				</div>
+			</div>
+
+			<div class="col-sm-2">
+				<div class="thumbnail">
+					<img class="image" src="images/iosLogo.png" alt="ios" style="height: 150px; width: 150px">
+				</div>
+			</div>
+			<!-- column -->
+			<div class="col-sm-2">
+				<div class="thumbnail">
+					<img class="image" src="images/IosQR.png" alt="iosQR" style="height: 150px; width: 150px">
+				</div>
+			</div>
+			<!-- column -->
+			<div class="col-sm-2">
+				<div class="thumbnail">
+					<a href="https://itunes.apple.com/us/app/scatta-e-ri-scatta/id1462447469"><img class="image" src="images/appstore.png" alt="appStore" style="height: 87px; width: 150px; margin: 14% 14%;"></a>
+				</div>
+			</div>
+
+
+
+
+
+		</div>
+	</div>
+	<script>
+		function getUrlParameter(name) {
+			name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+			var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+			var results = regex.exec(location.search);
+			return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+		};
+
+		var isActive = getUrlParameter('active');
+		switch (isActive) {
+			case "1":
+				document.getElementById('alreadyactiveMsg').style.display = 'block';
+				document.getElementById('defaultMsg').style.display = 'none';
+				break;
+			case "0":
+				document.getElementById('defaultMsg').style.display = 'block';
+				document.getElementById('alreadyactiveMsg').style.display = 'none';
+				break;
+			default:
+				document.getElementById('defaultMsg').style.display = 'block';
+				document.getElementById('alreadyactiveMsg').style.display = 'none';
+				break;
+		}
+
+	</script>
+</body>
+</html>

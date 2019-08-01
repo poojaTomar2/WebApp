@@ -1,0 +1,29 @@
+.x-icon-modify {
+    background-image: url(modify.gif) !important;
+}
+
+.x-icon-delete {
+    background-image: url(delete.gif) !important;
+}
+
+.x-icon-cancel {
+    background-image: url(cancel.gif) !important;
+}
+
+.x-icon-checked {
+    background-image: url(checked.gif) !important;
+}
+
+.x-icon-invalid {
+    background-image: url(invalid.gif) !important;
+}
+
+.x-grid3-hd-row td.ux-cherry-filtered-column {
+    font-style:italic !important;
+    font-weight:bold !important;
+}
+
+.x-grid3-row-notValid {
+    font-style:italic !important;
+    background-color:red !important;
+}

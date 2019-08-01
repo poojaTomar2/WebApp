@@ -1,0 +1,37 @@
+{
+  "name": "sencha-azure",
+  "format": "1",
+  "version": "1.0.0.180",
+  "compatVersion": "1.0.0",
+  "creator": "Sencha",
+  "summary": "Sencha Extensions for Microsoft Azure",
+  "detailedDescription": "Sencha Extensions for Microsoft Azure",
+  "type": "code",
+  "signatures": [
+    {
+      "name": "Sencha",
+      "uuid": "e93ebd09-85f5-46b6-bfc1-c7f06cf0b8a5",
+      "created": "2014-09-03T22:50:43Z",
+      "algorithm": "SHA1withRSA",
+      "nonce": "y4PtHcY2x/k\u003d",
+      "signature": "f/NqqWTf5Eqq9fGZWugRehO/Rv7BySnDFKX2YEl82pbjkYAucRP+81O8moJFE3cgAEQ4f7DXFFu/0SpiOrL+Kt23L2P87drkwxeyKoKL7TMChm/x0VXZWM9lofx3qbLQuCK0vT9cKCVuOvohlvba7uJp2IBX7m59FVu02HuHk3VsU94QAP1D/JKPrur9j6GqeasJTO0qaYoBgtdo+3XgjAfD/oA5Lka162aaTbWpu9S/gaY+Rpd+DX4bE68FEbKsSPIPjKyOeV0n335II2ZoiVOmYtWaiXOb0rpbjhraOaaBrJ2AT17YF7PytAUOG0KfZS9MpSxbG2ekxh/ItWAz4e8R2zYhk04FsXe60GIFQukrrihF2KFsUyNHDtkfMsNgPA9MPwdVIa537Ov9x/SDZMZYp7zbws2KQg+JSMbLXZlSsTR+N03zRxXWXGHNyBe8v2t3I7hjlWrT2pOpFjxnDUIzEgverLIYz65IuhzlYGjnFhidZ7cQ1gP1xgMXURmolD9Xn6q1NAO2EhKOfcJEMrJd0EbHuAuuBIrwuETZMJMkVvAkWbSQsqAUFLjc9gSIXrnmsPCt4KlirPjh62daXVICkemEkOIshVQuaHtDgWACD3f9SYdw/W6AT4sYSMNbKjPgrYY7SeDHQ1DxBm0oOOm0hSXqMb60gGVtHjycbMo\u003d"
+    }
+  ],
+  "slicer": {
+    "js": [
+      {
+        "path": "${package.dir}/sass/example/custom.js",
+        "isWidgetManifest": true
+      }
+    ]
+  },
+  "builds": {
+    "ext": {
+      "framework": "ext"
+    },
+    "touch": {
+      "framework": "touch"
+    }
+  },
+  "output": "${package.dir}/build"
+}

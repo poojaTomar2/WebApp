@@ -1,0 +1,1226 @@
+.login {
+	background-color: red;
+	background-image: url(../images/plain_bg.png) !important;
+}
+
+.x-form .x-scroll-container {
+	background-color: transparent !important;
+}
+
+.x-button-label, .x-badge, .x-hasbadge .x-badge {
+	font-weight: bold;
+	font-family: "Helvetica Neue", HelveticaNeue, "Helvetica-Neue", Helvetica, "BBAlpha Sans", sans-serif;
+	font-size: 0.6em !important;
+}
+
+.mainBackground {
+	background-image: url(../images/main_bg.png);
+	background-repeat: no-repeat;
+	background-position: inherit;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.sendMessage {
+	background-image: url(../images/main_message_normal.png);
+	background-size: cover;
+}
+
+.mainSubBackground {
+	background-image: url(../images/main_sub_bg.png);
+	background-size: cover;
+}
+
+.visit {
+	background-image: url(../images/main_visit_normal.png);
+	background-size: cover;
+}
+
+.customer {
+	background-image: url(../images/main_customer_normal.png);
+	background-size: cover;
+}
+
+.objective {
+	background-image: url(../images/main_objective_normal.png);
+	background-size: cover;
+}
+
+.orderStatus {
+	background-image: url(../images/main_order_status_normal.png);
+	background-size: cover;
+}
+
+.syncLog {
+	background-image: url(../images/main_synclog_normal.png);
+	background-size: cover;
+}
+
+.alert {
+	background-image: url(../images/main_customer_normal.png);
+	background-size: cover;
+}
+
+.navigation-list {
+	height: 50px;
+	line-height: 25px;
+}
+
+
+
+.navigation-dataview {
+	text-align: center;
+	vertical-align: middle;
+	width: 150px;
+}
+
+.map {
+	background-image: url(../images/map.png);
+	background-size: cover;
+}
+
+.titlebar {
+	background-image: url(../images/titlebar_bg.png) !important;
+}
+
+.back {
+	background-image: url(../images/back.png) !important;
+	background-size: cover;
+}
+
+.onRoute {
+	background-image: url(../images/on_route_normal.png) !important;
+	height: 70px;
+	width: 100px !important;
+	color: white;
+}
+
+.offRoute {
+	background-image: url(../images/off_route_normal.png) !important;
+	height: 70px;
+	width: 60px !important;
+	color: white;
+}
+
+.customeInfoTable {
+	width: 100%;
+	font-size: 0.6em;
+	margin: 5x;
+}
+
+	.customeInfoTable tr td {
+		vertical-align: top;
+	}
+
+		.customeInfoTable tr td:first-child {
+			font-weight: bold;
+		}
+
+.customerDetail {
+	text-align: left;
+	vertical-align: top;
+}
+
+.headerDetail {
+	vertical-align: top;
+}
+
+.iot-toolbar {
+	background-image: none;
+	border-color: black;
+}
+
+.x-button, .x-button.x-button-back:after, .x-button.x-button-forward:after, .x-toolbar .x-button, .x-toolbar .x-button.x-button-back:after, .x-toolbar .x-button.x-button-forward:after {
+	background-image: none;
+	/*background-color: rgb(233, 40, 52) !important;*/
+	color: white !important;
+}
+
+.x-grid .x-grid-column {
+	line-height: 30px;
+	height: 30px;
+	padding: 0 2px;
+}
+
+.df-autoHeight {
+	text-overflow: ellipsis;
+}
+
+	.df-autoHeight .x-grid-column {
+		line-height: normal;
+	}
+
+	.df-autoHeight .x-grid-cell {
+		height: auto;
+		line-height: normal;
+		text-overflow: ellipsis;
+		padding: 0 1px 0 1px;
+	}
+
+.message {
+	line-height: 50px;
+	margin-top: 10px;
+	background-color: transparent !important;
+}
+
+.messageLabel {
+	color: white;
+	line-height: 50px;
+	font-size: 0.7em;
+}
+
+.cooler-list-quesMarkImage {
+	background-image: url(../icons/025.png) !important;
+}
+
+.cooler-list-item-device-status-base {
+	float: left;
+	width: 17px;
+	height: 17px;
+	background-size: 15px 15px;
+	background-repeat: no-repeat;
+}
+
+.cooler-list-image-found {
+	background-image: url(../icons/tick-mark-icon.png) !important;
+}
+
+.cooler-list-image-notfound {
+	background-image: url(../icons/item-notfound.png) !important;
+}
+
+.cooler-list-image-container {
+	/*background-position: left;*/
+	background-repeat: no-repeat;
+	width: 65px;
+	height: 80px;
+	/*float: left;*/
+	background-size: 60px 75px;
+	margin-left: 5px;
+}
+
+.cooler-list-image {
+	background-image: url(../icons/cooler.png) !important;
+}
+
+.cooler-list-label {
+	/*color: #ff0000;*/
+	font-size: 8pt;
+	text-align: center;
+}
+
+.cooler-list-image-small {
+	background-position: center center;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 40px;
+	background-size: contain;
+}
+
+.cooler-list-inrangetemperature {
+	background-image: url(../icons/inrangetemp.png) !important;
+}
+
+.cooler-list-lowtemperature {
+	background-image: url(../icons/lowtemp.png) !important;
+}
+
+.cooler-list-hightemperature {
+	background-image: url(../icons/hightemp.png) !important;
+}
+
+.cooler-list-darklight {
+	background-image: url(../icons/darklight.png) !important;
+}
+
+.cooler-list-brightlight {
+	background-image: url(../icons/brightlight.png) !important;
+}
+
+.cooler-list-lowlight {
+	background-image: url(../icons/lowlight.png) !important;
+}
+
+.cooler-list-humidity25 {
+	background-image: url(../icons/purity25.png) !important;
+}
+
+.cooler-list-humidity50 {
+	background-image: url(../icons/purity50.png) !important;
+}
+
+.cooler-list-humidity75 {
+	background-image: url(../icons/purity75.png) !important;
+}
+
+.cooler-list-humidity100 {
+	background-image: url(../icons/purity100.png) !important;
+}
+
+.cooler-list-stock25 {
+	background-image: url(../icons/stock25.png) !important;
+}
+
+.cooler-list-stock50 {
+	background-image: url(../icons/stock50.png) !important;
+}
+
+.cooler-list-stock75 {
+	background-image: url(../icons/stock75.png) !important;
+}
+
+.cooler-list-stock100 {
+	background-image: url(../icons/stock100.png) !important;
+}
+
+.cooler-list-labelblack {
+	color: black;
+	font-size: 8pt;
+	text-align: center;
+}
+
+.circle {
+	border-radius: 50%;
+	width: 17px;
+	height: 17px;
+	background-position: center center;
+	text-align: center;
+}
+
+
+.listItem {
+}
+
+.listImage {
+	margin-right: 5px;
+	float: left;
+}
+
+.icon-white {
+	background-image: url(../icons/icon-white.png) !important;
+	background-size: cover;
+}
+
+
+.nav-bar .x-button {
+	display: -webkit-box;
+	display: box;
+	-webkit-box-orient: vertical;
+	box-orient: vertical;
+}
+
+.x-list .x-list-item.x-item-selected.x-list-item-tpl {
+	background-image: none;
+	background-color: #c00;
+	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ff1a1a), color-stop(3%, #e60000), color-stop(100%, #b30000));
+	background-image: -webkit-linear-gradient(top, #ff1a1a,#e60000 3%,#b30000);
+	background-image: linear-gradient(top, #ff1a1a,#e60000 3%,#b30000);
+	border-color: #000;
+	color: white !important;
+}
+
+.loading-icon {
+	background-image: url(../icons/coke_bottle_icon2.png) !important;
+	background-repeat: no-repeat;
+}
+
+.alertBtn {
+	background-color: transparent !important;
+}
+
+.actionBtn {
+	width: 16px;
+	height: 16px;
+	margin: auto;
+	background-image: url(../icons/action/action.png) !important;
+	background-repeat: no-repeat;
+}
+
+.issue {
+	width: 32px;
+	height: 32px;
+	margin: auto;
+	background-image: url(../images/icon_smart_cooler-32.png) !important;
+	background-repeat: no-repeat;
+}
+
+.tabletDashboardList {
+	background-color: rgb(233, 40, 52) !important;
+	background-repeat: no-repeat;
+}
+
+.action-44 {
+	background-image: url(../icons/action/phone.png) !important;
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	margin: auto;
+}
+
+.action-45 {
+	background-image: url(../icons/action/sms.png) !important;
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	margin: auto;
+}
+
+.action-52 {
+	background-image: url(../icons/action/sendtocallcenter.png) !important;
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	margin: auto;
+}
+
+.update {
+	background-image: url(../icons/update.png) !important;
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	margin: auto;
+}
+
+.action-List {
+	background-image: url(../icons/action/list.png) !important;
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	margin: auto;
+}
+
+.action-46 {
+	background-image: url(../icons/action/Email.png) !important;
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	margin: auto;
+}
+
+.status-action-Void {
+	background-image: url(../icons/status/void.png) !important;
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	margin: auto;
+}
+
+.status-action-Planned{
+	background-image: url(../icons/status/actionPlanned.png) !important;
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	margin: auto;
+}
+
+.status-action-Completed{
+	background-image: url(../icons/status/AlertClosed.png) !important;
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	margin: auto;
+}
+
+.status-alert-New {
+	background-image: url(../icons/status/new.png) !important;
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	margin: auto;
+}
+
+.status-alert-Planned{
+	width: 16px;
+	height: 16px;
+	margin: auto;
+	background-image: url(../icons/status/alertPlanned.png) !important;
+	background-repeat: no-repeat;
+}
+
+.status-alert-Complete {
+	width: 16px;
+	height: 16px;
+	margin: auto;
+	background-image: url(../icons/status/actionComplete.png) !important;
+	background-repeat: no-repeat;
+}
+
+.status-alert-Closed {
+	width: 16px;
+	height: 16px;
+	margin: auto;
+	background-image: url(../icons/status/AlertClosed.png) !important;
+	background-repeat: no-repeat;
+}
+
+.customerInfo {
+	float: left;
+	width: 16px;
+	height: 16px;
+	margin: auto;
+	background-image: url(../icons/list.png) !important;
+	background-repeat: no-repeat;
+}
+
+.followUpButton {
+	background-color: #92D050;
+	color: white;
+}
+
+.login-forgot-password {
+	text-align: center;
+}
+
+	.login-forgot-password a {
+		text-decoration: none;
+	}
+
+.alert-text, .message-text {
+	margin-left: 64px;
+	margin-top: -24px;
+	font-size: small;
+}
+
+.action-47 {
+	background-image: url(../icons/action/list.png) !important;
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	margin: auto;
+}
+
+.nothealthy {
+	background-image: url(../icons/visit/healthIssue.png) !important;
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	margin: auto;
+	float: right;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+.unschedule {
+	background-image: url(../icons/visit/OffRoute16x16.png) !important;
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	margin: auto;
+	float: right;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+.schedule {
+	background-image: url(../icons/visit/OnRoute16x16.png) !important;
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	margin: auto;
+	float: right;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+
+.keylocation {
+	background-image: url(../icons/visit/key_icon.png) !important;
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	margin: auto;
+	float: right;
+}
+
+.purityissue {
+	background-image: url(../icons/visit/purity_icon.png) !important;
+	background-repeat: no-repeat;
+	width: 21px;
+	height: 16px;
+	margin: auto;
+	float: right;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+.lightissue {
+	background-image: url(../icons/visit/darklight_icon.png) !important;
+	background-repeat: no-repeat;
+	width: 21px;
+	height: 16px;
+	margin: auto;
+	float: right;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+.otherissue {
+	background-image: url(../icons/visit/problem-icon.png) !important;
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	margin: auto;
+	float: right;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+.missingissue {
+	background-image: url(../icons/visit/problem-icon.png) !important;
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	margin: auto;
+	float: right;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+.stockissue {
+	background-image: url(../icons/visit/stock25.png) !important;
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	margin: auto;
+	float: right;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+.movementissue {
+	background-image: url(../icons/visit/movement.png) !important;
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	margin: auto;
+	float: right;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+
+.location-name {
+	float: left;
+}
+
+.location-icons {
+	float: right;
+}
+
+.assetDetails {
+	margin: 5px;
+	font-size: 11px;
+}
+
+.wending-machine-list-image {
+	background-image: url(../images/wending_machine.png) !important;
+	background-repeat: no-repeat;
+}
+
+.assetContainer {
+	background-color: white;
+}
+
+.assetIssue {
+	display: table-row;
+}
+
+.assetIssueContainer {
+	font-size: 11px;
+	margin: 0px -4px 0px 0px;
+	padding-left: 10px;
+	float: right;
+	padding-top: 4px;
+	display: table;
+}
+
+.labels {
+	color: red;
+	background-color: white;
+	font-family: "Lucida Grande", "Arial", sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	text-align: center;
+	border: 2px solid black;
+	white-space: nowrap;
+}
+
+.menu-list-items {
+	width: 100%;
+}
+
+	.menu-list-items img {
+		width: 20px;
+		height: 20px;
+		vertical-align: middle;
+		margin: 5px 10px 0 0;
+		float: left;
+	}
+
+	.menu-list-items div {
+		margin: 5px 0 0 0;
+		color: White;
+		line-height: 20px;
+		font-size: 11px;
+	}
+
+.image-shadow {
+	width: 87px;
+	height: 82px;
+	box-shadow: 5px 5px 10px rgba(0,0,0,0.7);
+	border: 1px solid rgba(43, 124, 231, 0.8);
+}
+
+.cooler-list-header {
+	width: 100%;
+}
+
+	.cooler-list-header tr td {
+		width: 50%;
+	}
+
+		.cooler-list-header tr td td {
+			width: 50%;
+		}
+
+.cooler-list-header-text {
+	font-size: 11pt;
+	font-weight: bold;
+	line-height: 25px;
+}
+
+.item-data {
+	float: left;
+	padding-left: 8px;
+	font-weight: normal;
+	margin: 3px;
+}
+
+.cooler-list-header-image {
+	background-position: center right;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 20px;
+	background-size: contain;
+}
+
+.cooler-list-header-image-unknown {
+	background-image: url(../icons/unknown.png) !important;
+	background-repeat: no-repeat;
+}
+
+.cooler-door-open {
+	background-image: url(../icons/door_open_in.png) !important;
+	background-repeat: no-repeat;
+}
+
+.cooler-door-close {
+	background-image: url(../icons/door_arrow.png) !important;
+	background-repeat: no-repeat;
+}
+
+.cooler-door-open-duration {
+	background-image: url(../icons/timelineIcon.png) !important;
+	background-repeat: no-repeat;
+}
+
+.labelStyle {
+	font-weight: bold;
+}
+
+.cooler-list-image-mini-left {
+	background-position: center center;
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	background-size: contain;
+	float: left;
+}
+
+.dataview-base {
+	margin: 10px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	-moz-box-shadow: 5px 5px 1px #cacaca;
+	-webkit-box-shadow: 5px 5px 1px #cacaca;
+	box-shadow: 5px 5px 1px #cacaca;
+}
+
+.dataview-data-format {
+	font-size: 9pt;
+	padding: 5px 5px 5px 5px;
+}
+
+.iot-alert-list {
+	font-size: 0.6em;
+}
+
+.iot-alertRow {
+	border-bottom: solid 1px #ccc;
+}
+
+.iot-alertData > div {
+	display: inline-block;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.iot-row-collapsed > .iot-row-detail {
+	display: none;
+}
+
+.iot-alert-location {
+	width: 14.5em;
+}
+
+.iot-alert-alert, .iot-alert-age, .iot-alert-status, .iot-alert-route {
+	width: 3em;
+}
+
+.iot-alert-issue, .iot-alert-action {
+	width: 2em;
+}
+
+.iot-alert-action {
+	background-image: url(../icons/action/action.png) !important;
+	background-repeat: no-repeat;
+}
+
+.iot-action-alertRow .x-clear, .iot-alert-actionRow .x-clear {
+	display: block;
+	clear: both;
+}
+
+.iot-alert-actionRow {
+	padding-left: 4em;
+	line-height: 2em;
+}
+
+	.iot-alert-actionRow > div {
+		display: inline-block;
+	}
+
+.iot-action-date {
+	width: 4em;
+}
+
+.iot-action-icon, .iot-action-status {
+	width: 2em;
+}
+
+.iot-action-detail {
+	width: 17em;
+}
+
+.iot-collapsible-title {
+	background: -webkit-linear-gradient(top, #ff3019 0%,#cf0404 100%);
+	color: white;
+	line-height: 2em;
+}
+
+	.iot-collapsible-title .iot-row-icon {
+		float: left;
+	}
+
+.iot-row-expanded {
+	position: relative;
+	width: 0;
+	height: 0;
+	border: 8px solid transparent;
+	border-top-color: #999;
+	top: 4px;
+	margin-right: 0.4em;
+}
+
+.iot-row-expandable {
+	position: relative;
+	width: 0;
+	height: 0;
+	border: 9px solid transparent;
+	border-left-color: #999;
+	top: 2px;
+	margin-right: 0.4em;
+	margin-left: 0.1em;
+}
+
+.iot-row-leaf {
+	position: relative;
+	width: 0;
+	height: 0;
+	border: 9px solid transparent;
+	margin-right: 0.4em;
+}
+
+.x-list-item.x-item-selected .down {
+	border-top-color: #fff;
+}
+
+.x-list-item.x-item-selected .right {
+	border-left-color: #fff;
+}
+
+.iot-alertData-header {
+	background: -webkit-linear-gradient(top, #ff3019 0%,#cf0404 100%);
+	color: white;
+	line-height: 2em;
+}
+
+	.iot-alertData-header > div {
+		display: inline-block;
+		/*border-left: 1px solid #ccc;*/
+	}
+
+	.iot-alertData-header div:first-child, .iot-alertData-header div:last-child {
+		border-left: none;
+	}
+
+	.iot-alertData-header .iot-row-expander-icon {
+		width: 16px;
+	}
+
+.location-list-image {
+	background-position: center right;
+	background-repeat: no-repeat;
+	width: 20px;
+	height: 20px;
+	background-size: contain;
+	float: right;
+}
+.loading {
+	background-image: url(../icons/loading.gif) !important;    
+}
+.logout {
+	background-image: url(../icons/logout-new.png) !important;
+}
+
+.cooler-list-image-icon {
+	background-position: center center;
+	background-repeat: no-repeat;
+	width: 1em;
+	height: 1em;
+	background-size: contain;
+	display:inline-block;
+	margin-right:5px;
+	margin-left:5px;
+}
+.location-list-title {
+    font-size:18px;
+    font-weight: bold;
+    color:#006666;
+    padding-bottom: 5px;
+}
+.location-list-item-label {
+    font-size:11px;
+    color:#A0A2A2;
+}
+.cooler-list-column-3em {
+	width: 3em;
+}
+
+.cooler-list-column-2em {
+	width: 2em;
+}
+
+.cooler-list-column-5em {
+	width: 5em;
+}
+
+.cooler-list-column-10em {
+	width: 10em;
+}
+
+.cooler-list-image-mini {
+	background-position: center center;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 20px;
+	background-size: contain;
+}
+
+.cooler-list-sound {
+	background-image: url(../icons/sound_wave.png) !important;
+}
+
+.cooler-list-lowhumidity {
+	background-image: url(../icons/lowhumidity.png) !important;
+}
+
+.cooler-list-avragehumidity {
+	background-image: url(../icons/avragehumidity.png) !important;
+}
+
+.cooler-list-aboveavragehumidity {
+	background-image: url(../icons/aboveavragehumidity.png) !important;
+}
+
+.cooler-list-highhumidity {
+	background-image: url(../icons/highhumidity.png) !important;
+}
+
+.cooler-list-movement-text {
+	color: #ff0000;
+	font-size: 8pt;
+	text-align: left;
+}
+
+.disclosure {
+	background-image: url(../icons/Disclosure.png) !important;
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	margin: auto;
+}
+
+.grid-header-small {
+	font-size: .7em;
+}
+
+.cooler-list-alerttype1 {
+	background-image: url(../icons/AlertType/stock25.png) !important;
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	margin: auto;
+}
+
+.cooler-list-alerttype2 {
+	background-image: url(../icons/AlertType/inrangetemp.png) !important;
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	margin: auto;
+}
+
+.cooler-list-alerttype3 {
+	background-image: url(../icons/AlertType/door_open_in.png) !important;
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	margin: auto;
+}
+
+.cooler-list-alerttype4 {
+	background-image: url(../icons/AlertType/darklight_icon.png) !important;
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	margin: auto;
+}
+
+.cooler-list-alerttype5 {
+	background-image: url(../icons/AlertType/HumidityAlert16x16.png) !important;
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	margin: auto;
+}
+
+.cooler-list-alerttype6 {
+	background-image: url(../icons/AlertType/SoundAlert.png) !important;
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	margin: auto;
+}
+
+.cooler-list-alerttype7 {
+	background-image: url(../icons/AlertType/CoolerTiltMove.png) !important;
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	margin: auto;
+}
+
+.cooler-list-alerttype8 {
+	background-image: url(../icons/AlertType/CoolerTiltMove.png) !important;
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	margin: auto;
+}
+
+.cooler-list-alerttype9 {
+	background-image: url(../icons/AlertType/purity25.png) !important;
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	margin: auto;
+}
+
+.cooler-list-alerttype10 {
+	background-image: url(../icons/AlertType/movement.png) !important;
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	margin: auto;
+}
+
+.message-list-date-text {
+	color: #ff0000;
+	font-size: 8pt;
+	text-align: right;
+	margin-bottom: 5px;
+}
+
+.message-list-detail-text {
+	font-size: 8pt;
+	text-align: left;
+	height: 25px;
+	overflow: hidden;
+}
+
+
+.message-list {
+	width: 100%;
+}
+
+	.message-list tr:first-child {
+		font-size: 8pt;
+		font-weight: bold;
+	}
+
+.message-list-subject-text {
+	margin-bottom: 5px;
+}
+
+@media screen and (max-width:1024px) {
+	.df-autoHeight {
+		font-size: .6em;
+	}
+}
+
+@media screen and (min-width: 1600px) {
+	.iot-alert-list {
+		font-size: 1em;
+	}
+
+	.iot-alert-location {
+		width: 14.5em;
+	}
+
+	.iot-alert-alert, .iot-alert-age, .iot-alert-status, .iot-alert-route, .iot-action-date, .iot-alert-issue, .iot-alert-action, .iot-action-icon, .iot-action-status {
+		width: 3em;
+	}
+
+	.iot-action-detail {
+		width: 17em;
+	}
+}
+
+.syncPanelData {
+	line-height: 500px;
+	text-align: center;
+	font-size: 22px;
+}
+
+.list-div > div {
+	display:inline-block;
+	padding-right:.5em;
+}
+.debug {
+	background-image: url(../icons/debug-device.png) !important;
+}
+
+.device-data-list-container {	
+	font-size:13px;
+}
+.device-data-title{
+    font-weight: bold;
+    background-color: #ffcc66;
+    font-size: 18px;
+    color: #256882;
+    text-align: center;
+    width: 100px;
+}
+.device-data-subtitle{
+    color: #256882;
+    width: 50%;
+    font-weight: bold;
+}
+.device-data-value{
+    color:#2C9DBE;
+}
+.scandevice-list {
+	font-size:16px;
+	font-weight:bold;
+}
+.scandevice-list-label {
+	font-size:12px;
+	padding: 5px 0px;
+}
+.scandevice-list-label-text {
+	color:#A4A4A4;
+	font-size:12px;
+	font-style:italic;
+}
+.device-name-selection{
+     color:#006666;   
+}
+.device-name-selection table tr td{
+    width: 100px;
+}
+/*For menu from here*/
+.x-popup-menu {
+    box-shadow: 0 0 0.5em;
+    border-radius: 0.3em;
+    color: $list-color;
+    background: $list-bg-color;
+}
+.x-popup-menu .x-anchor.x-anchor-left,
+.x-popup-menu .x-anchor.x-anchor-right,
+.x-popup-menu .x-anchor.x-anchor-top,
+.x-popup-menu .x-anchor.x-anchor-bottom {
+    background: $list-bg-color;
+}
+.x-popup-menu .x-button-label {
+    text-align: left;
+    color: white;
+}
+
+.data-item-container{
+	width:100%;
+}
+.data-item-container table tr td{
+	width:16.6%;
+}
+.data-item-container table tr td td{
+	width:16.6%;
+}
+.data-item-container table tr td td td{
+	width:16.6%;
+}
+.data-item-container table tr td td td td{
+	width:16.6%;
+}
+.data-item-container table tr td td td td td{
+	width:16.6%;
+}
+.data-item-container table tr td td td td td td{
+	width:16.6%;
+}
+.container {
+	height: 80px;
+}
+
+	.container table tr td {
+		width: 20%;
+	}
+
+		.container table tr td td {
+			width: 20%;
+		}
+
+			.container table tr td td td {
+				width: 20%;
+			}
+
+				.container table tr td td td td {
+					width: 20%;
+				}
+
+					.container table tr td td td td td {
+						width: 20%;
+					}

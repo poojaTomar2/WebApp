@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ErrorMapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<Patterns>
+		<Pattern>
+			<RegEx>Cannot insert duplicate key row in object \'[a-zA-Z0-9._]{1,255}\' with unique index \'([a-zA-Z0-9._]{1,255})\'</RegEx>
+		</Pattern>
+		<Pattern>
+			<RegEx>Violation of UNIQUE KEY constraint \'([a-zA-Z0-9._]{1,255})\'. Cannot insert duplicate key in object \'([a-zA-Z0-9._]{1,255})\'</RegEx>
+		</Pattern>
+		<Pattern>
+			<RegEx>[a-zA-Z0-9._]{1,255} ([a-zA-Z0-9._]{1,255}), severity 12, state 1 was raised, but no message with that error number was found in sys.messages.</RegEx>
+		</Pattern>
+	</Patterns>
+	<Messages>
+		<Message>
+			<Key>IX_Security_User_Username</Key>
+			<Value>This username has already been used. Please use another username.</Value>
+		</Message>
+		<Message>
+			<Key>IX_Security_User_UPN</Key>
+			<Value>This UPN has already been used. Please use another UPN.</Value>
+		</Message>
+		<Message>
+			<Key>IX_Client_ClientCode</Key>
+			<Value>Client Code has already been used. Please use another Client Code.</Value>
+		</Message>
+		<Message>
+			<Key>IX_Client_ClientName</Key>
+			<Value>Client Name has already been used. Please use another Client Name.</Value>
+		</Message>
+		<Message>
+			<Key>IX_Asset_SerialNumber</Key>
+			<Value>Serial Number has already been used. Please use another Serial Number.</Value>
+		</Message>
+		<Message>
+			<Key>IX_Location_Code</Key>
+			<Value>Location code must be unique.</Value>
+		</Message>
+		<Message>
+			<Key>IX_SmartDevice_MacAddress</Key>
+			<Value>Duplicate Mac Address not allowed.</Value>
+		</Message>
+		<Message>
+			<Key>IX_SmartDevice_SerialNumber</Key>
+			<Value>Serial number can not be duplicate for Same Client and Device Type</Value>
+		</Message>
+		<Message>
+			<Key>IX_Country</Key>
+			<Value>Duplicate Country name not allowed.</Value>
+		</Message>
+		<Message>
+			<Key>IX_PlanogramName</Key>
+			<Value>Planogram name already exists.</Value>
+		</Message>
+		<Message>
+			<Key>IX_Consumer_Unique_Email</Key>
+			<Value>Email already registered.</Value>
+		</Message>
+		<Message>
+			<Key>IX_LocationRep_LocationId_RepId_IsDeleted_UniqueKey</Key>
+			<Value>Duplicate Sales Rep not allowed for same Outlet.</Value>
+		</Message>
+		<Message>
+			<Key>IX_SurveyType_TypeId_ClientId_IsDefault_CategoryId_IsDeleted_UniqueKey</Key>
+			<Value>Only one default ServeyType is allowed for each Client or Global. For each Category.</Value>
+		</Message>
+		<Message>
+			<Key>IX_SurveyType_TypeId_ClientId_IsDefault_CategoryId_Client_Prospect</Key>
+			<Value>Only one Prospect is allowed at Client level other than global.</Value>
+		</Message>
+		<Message>
+			<Key>IX_MarketDayDetail_MarketDayId_SmartRewardUserId_IsDeleted_UniqueKey</Key>
+			<Value>Duplicate Smart Reward User not allowed for same date</Value>
+		</Message>
+		<Message>
+			<Key>IX_MarketDay_MarketDate_UniqueKey_IsDeleted</Key>
+			<Value>Market Date already exists</Value>
+		</Message>
+		<Message>
+			<Key>IX_SalesTerritory_Name_Code_IsDeleted_ClientId_UniqueKey</Key>
+			<Value>Territory with same Name,Client Name and Code already exists</Value>
+		</Message>
+		<Message>
+			<Key>IX_SalesOrganization_Name_Code_IsDeleted_UniqueKey_ClientId</Key>
+			<Value>Organization with same Name,Client Name and Code already exists</Value>
+		</Message>
+		<Message>
+			<Key>IX_SalesOffice_Name_Code_IsDeleted_ClientId_UniqueKey</Key>
+			<Value>Office with same Name, Client Name and Code already exists</Value>
+		</Message>
+		<Message>
+			<Key>IX_SalesGroup_Name_Code_IsDeleted_ClientId_UniqueKey</Key>
+			<Value>Group with same Name, Client Name and Code already exists</Value>
+		</Message>
+		<Message>
+			<Key>IX_SmartDeviceTypeConfiguration_IsDeleted_SmartDeviceTypeId_ClientId_UniqueKey</Key>
+			<Value>Cannot insert duplicate key row.</Value>
+		</Message>
+		<Message>
+			<Key>IX_Manufacturer_ManufactureName_IsDeleted_ClientId_UniqueKey</Key>
+			<Value>Manufacturer with same Name already exists</Value>
+		</Message>
+		<Message>
+			<Key>IX_SmartDevice_IBeaconMajor_IBeaconMinor_IBeaconUuid_IsDeleted</Key>
+			<Value>SmartDevice already exists with same IBeacon Major, IBeacon Minor AND IBeacon Uuid</Value>
+		</Message>
+		<Message>
+			<Key>IX_ProductGroup_GroupName_ClientId_IsDeleted_UniqueKey</Key>
+			<Value>"Group Name" already exists for the client</Value>
+		</Message>
+		<Message>
+			<Key>IX_SalesHierarchy_Name_Code_IsDeleted_UniqueKey_ClientId</Key>
+			<Value>"Name" and "Code" already exists for the client</Value>
+		</Message>
+		<Message>
+			<Key>IX_State_CountryId_State_IsDeleted_UniqueKey</Key>
+			<Value>State already exists</Value>
+		</Message>
+		<Message>
+			<Key>IX_Asset_EquipmentNumber_IsDeleted_UniqueKey</Key>
+			<Value>Equipment Number already exists</Value>
+		</Message>
+		<Message>
+			<Key>IX_Asset_EquipmentNumber_SerialNumber</Key>
+			<Value>Same Equipment Number and Serial Numnber already exists</Value>
+		</Message>
+		<Message>
+			<Key>IX_AssetTypeCapacityId_SalesHierarchyId_UniqueKey</Key>
+			<Value>AssetTypeCapacityThresold already exists with same Sales Hierarchy.</Value>
+		</Message>
+		<Message>
+			<Key>IX_ClientBeaconConfig_IBeaconUuid_EddystoneNamespace_IBeaconMajor</Key>
+			<Value>Cannot insert duplicat record with same IBeacon UUID, Eddystone Namespace and IBeacon Major.</Value>
+		</Message>
+		<Message>
+			<Key>IX_ClientBeaconConfigDetail_ClientId_IBeaconUuid_EddystonNamespace_IbeaconMajor_IbeaconMinor</Key>
+			<Value>Cannot insert duplicat record with same IBeacon UUID, Eddystone Namespace, IBeacon Major and Minor.</Value>
+		</Message>
+		<Message>
+			<Key>IX_SmartDevice_LinkedAssetId_InstallationAssetId_UniqueKey_IsDeleted</Key>
+			<Value>Cannot associate more than one device to single cooler</Value>
+		</Message>
+    <Message>
+      <Key>IX_ApplicationId_IsDeleted_UniqueKey</Key>
+      <Value>Duplicate entry is not allowed for same app.</Value>
+    </Message>
+		<Message>
+			<Key>IX_ThirdPartyPromotion_ThirdPartyAppId_CountryId_ThirdPartyPromotionId_IsDeleted</Key>
+			<Value>Already default Promotion with this App.</Value>
+		</Message>
+	</Messages>
+
+</ErrorMapping>

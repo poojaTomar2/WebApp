@@ -1,0 +1,992 @@
+﻿<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+
+	<style>
+		.axis path,
+		.axis line {
+			fill: none;
+			stroke: black;
+			shape-rendering: crispEdges;
+		}
+
+		.line {
+			fill: none;
+			stroke: steelblue;
+			stroke-width: 1.5px;
+		}
+
+		.axis text {
+			font-family: sans-serif;
+			font-size: 11px;
+		}
+
+		.slice path {
+			/*stroke: #fff;
+		stroke-width: 1px;*/
+		}
+
+		.textTop {
+			font-family: 'Segoe UI';
+			font-size: 8pt;
+			fill: #444;
+		}
+
+		.textBottom {
+			fill: #444;
+			font-family: 'Segoe UI';
+			font-weight: bold;
+			font-size: 18pt;
+		}
+
+		.top {
+			border: 1px solid #bbb;
+			color: #777;
+			font-family: 'Segoe UI';
+			padding: 5px;
+			text-decoration: none;
+		}
+
+			.top:hover {
+				border: 1px solid #555;
+				color: #333;
+			}
+
+		.redemption-body {
+			margin-right: 10px;
+		}
+
+		.x-panel-body-default {
+			background: #ececec;
+			border-color: #cecece;
+			color: #3e4752;
+			font-size: 15px;
+			font-weight: 300;
+			font-family: "Proxima Nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+			border-width: 1px;
+			border-style: solid;
+			/*margin-left: 10px;*/
+		}
+
+		.redemption-body {
+			border-radius: 3px;
+			-webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,0.25);
+			-moz-box-shadow: 0 1px 1px 0 rgba(0,0,0,0.25);
+			box-shadow: 0 1px 1px 0 rgba(0,0,0,0.25);
+			background-color: white;
+		}
+
+		.d3-tip {
+			line-height: 1;
+			font-weight: bold;
+			padding: 12px;
+			background: rgba(0, 0, 0, 0.8);
+			color: #fff;
+			border-radius: 2px;
+		}
+			/* Creates a small triangle extender for the tooltip */
+			.d3-tip:after {
+				box-sizing: border-box;
+				display: inline;
+				font-size: 10px;
+				width: 100%;
+				line-height: 1;
+				color: rgba(0, 0, 0, 0.8);
+				content: "\25BC";
+				position: absolute;
+				text-align: center;
+			}
+
+			/* Style northward tooltips differently */
+			.d3-tip.n:after {
+				margin: -1px 0 0 0;
+				top: 100%;
+				left: 0;
+			}
+	</style>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+</head>
+<body>
+	<div class="dashboardMain">
+		<div class="x-title-text">ON SHELF AVAILABILITY</div>
+		<table>
+			<tr>
+				<td>
+					<div class="redemption-body x-panel-body-default" style="height: 400px;">
+						<div id="chart2"></div>
+					</div>
+				</td>
+				<td>
+					<div class="redemption-body x-panel-body-default" style="height: 400px;">
+						<div id="chart1"></div>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<div class="x-title-text">PURITY AND OSA</div>
+		<table>
+			<tr>
+				<td>
+					<div class="redemption-body x-panel-body-default" style="height: 400px;">
+						<div id="chart3"></div>
+					</div>
+				</td>
+				<td>
+					<div class="redemption-body x-panel-body-default" style="height: 400px;">
+						<div id="chart4"></div>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<div class="x-title-text">VISIT EFFECTIVENESS</div>
+		<div class="redemption-body x-panel-body-default" style="height: 400px;">
+			<table>
+				<tr>
+					<td colspan="2">
+						Area : <select id="comboA" onchange="updateLineChartsData(this)">
+							<option value="0">Zone 1</option>
+							<option value="1">Zone 2</option>
+							<option value="2">Zone 3</option>
+							<option value="3">Zone 4</option>
+							<option value="4">Zone 5</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div id="chart5"></div>
+					</td>
+					<td>
+						<div id="chart6"></div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<!--<div id="chart1"></div>
+	<div id="chart2"></div>-->
+
+	<script>
+		Ext.Ajax.request({
+			url: 'controllers/CoolerSummary.ashx',
+			success: this.onSuccess,
+			params: { action: 'getChartData' },
+			scope: this
+		});
+
+		function onSuccess(response) {
+			var data = Ext.decode(response.responseText).records;
+			populateCharts(data);
+			populateChart2();
+			lineChart1(0); // Custome value 5 for changing data
+			lineChart2(0); // Custome value 5 for changing data
+		}
+
+		function populateCharts(data) {
+
+			var margin = { top: 20, right: 20, bottom: 30, left: 48 },
+				width = window.innerWidth - 695 - margin.left - margin.right,
+				height = 350 - margin.top - margin.bottom;
+
+			var x0 = d3.scale.ordinal()
+				.rangeRoundBands([0, width], .1);
+
+			var x1 = d3.scale.ordinal();
+
+			var y = d3.scale.linear()
+				.range([height, 0]);
+
+			var color = d3.scale.ordinal()
+				.range(["#FF0000", "#000000", "#808080", "#B5E61D", "#0000FF", "#C8BFE7"]);
+
+			var xAxis = d3.svg.axis()
+				.scale(x0)
+				.orient("bottom");
+
+			var yAxis = d3.svg.axis()
+				.scale(y)
+				.orient("left")
+				.tickFormat(d3.format(".2s"));
+
+			var tip = "";
+			if (d3.tip && d3.tip()) {
+				tip = d3.tip()
+				  .attr('class', 'd3-tip')
+				  .offset([-10, 0])
+				  .html(function (d) {
+				  	return "<strong>Count:</strong> <span>" + d.value + "</span>";
+				  });
+			}
+
+			var svg = d3.select("div#chart1").append("svg")
+				.attr("width", width + margin.left + margin.right)
+				.attr("height", height + margin.top + margin.bottom)
+			  .append("g")
+				.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+			if (tip) {
+				svg.call(tip);
+			}
+
+			var data = [
+				{ "Zone": "Zone 1", "Coke": 98729, "Coke Zero": 82753, "Diet Coke": 82341, "Sprite": 25421, "Dasani": 92521, "Other": 82752 },
+				{ "Zone": "Zone 2", "Coke": 75823, "Coke Zero": 72658, "Diet Coke": 24911, "Sprite": 12414, "Dasani": 62313, "Other": 28758 },
+				{ "Zone": "Zone 3", "Coke": 85797, "Coke Zero": 24181, "Diet Coke": 12349, "Sprite": 12545, "Dasani": 12341, "Other": 12983 },
+				{ "Zone": "Zone 4", "Coke": 29859, "Coke Zero": 29349, "Diet Coke": 11823, "Sprite": 11451, "Dasani": 45256, "Other": 12349 },
+				{ "Zone": "Zone 5", "Coke": 21949, "Coke Zero": 29478, "Diet Coke": 23941, "Sprite": 21433, "Dasani": 25451, "Other": 18923 }
+			];
+
+			var ageNames = d3.keys(data[0]).filter(function (key) { return key !== "Zone"; });
+
+			data.forEach(function (d) {
+				d.ages = ageNames.map(function (name) { return { name: name, value: +d[name] }; });
+			});
+
+			x0.domain(data.map(function (d) { return d.Zone; }));
+			x1.domain(ageNames).rangeRoundBands([0, x0.rangeBand()]);
+			y.domain([0, d3.max(data, function (d) { return d3.max(d.ages, function (d) { return d.value; }); })]);
+
+			svg.append("g")
+				.attr("class", "x axis")
+				.attr("transform", "translate(0," + height + ")")
+				.call(xAxis);
+
+			svg.append("g")
+				.attr("class", "y axis")
+				.attr("transform", "translate(0 ,0)")
+				.call(yAxis);
+
+			// xAxis label
+			svg.append("text")
+				.attr("transform", "translate(" + (width / 2) + " ," + (height + margin.bottom) + ")")
+				.style("text-anchor", "middle")
+				.text("Area");
+
+			//yAxis label
+			svg.append("text")
+					.attr("transform", "rotate(-90)")
+					.attr("y", 0 - margin.left)
+					.attr("x", 0 - (height / 2))
+					.attr("dy", "1em")
+					.style("text-anchor", "middle")
+					.text("On Shelf Availablity");
+
+			var zone = svg.selectAll(".zone")
+				.data(data)
+			  .enter().append("g")
+				.attr("class", "g")
+				.attr("transform", function (d) { return "translate(" + x0(d.Zone) + ",0)"; });
+
+			zone.selectAll("rect")
+				.data(function (d) { return d.ages; })
+			  .enter().append("rect")
+				.attr("width", x1.rangeBand())
+				.attr("x", function (d) { return x1(d.name); })
+				.attr("y", function (d) { return y(d.value); })
+				.attr("height", function (d) { return height - y(d.value); })
+				.style("fill", function (d) { return color(d.name); })
+				.on('mouseover', tip.show)
+				.on('mouseout', tip.hide);
+
+
+			var legend = svg.selectAll(".legend")
+				.data(ageNames.slice())
+			  .enter().append("g")
+				.attr("class", "legend")
+				.attr("transform", function (d, i) { return "translate(0," + i * 20 + ")"; });
+
+			legend.append("rect")
+				.attr("x", width - 130)
+				.attr("width", 18)
+				.attr("height", 18)
+				.style("fill", color);
+
+			legend.append("text")
+				.attr("x", width - 100)
+				.attr("y", 9)
+				.attr("dy", ".35em")
+				.text(function (d) { return d; });
+
+
+			// Pie chart
+			data = [
+				{ "Label": "Coke", "Value": 312157 },
+				{ "Label": "Coke Zero", "Value": 238419 },
+				{ "Label": "Diet Coke", "Value": 155365 },
+				{ "Label": "Sprite", "Value": 83264 },
+				{ "Label": "Dasani", "Value": 237882 },
+				{ "Label": "Other", "Value": 155765 }
+			];
+
+			var w = 350,
+				h = 400,
+				r = 150,
+				inner = 70,
+				color = d3.scale.category20c();
+
+			var color = d3.scale.ordinal()
+				.range(["#FF0000", "#000000", "#808080", "#B5E61D", "#0000FF", "#C8BFE7"]);
+
+			var vis = d3.select("div#chart2")
+				.append("svg:svg")
+				.data([data])
+					.attr("width", w)
+					.attr("height", h)
+				.append("svg:g")
+					.attr("transform", "translate(" + r * 1.1 + "," + r * 1.1 + ")")
+
+			var textTop = vis.append("text")
+				.attr("dy", ".35em")
+				.style("text-anchor", "middle")
+				.attr("class", "textTop")
+				.text("Products")
+				.attr("y", 0),
+			textBottom = vis.append("text")
+				.attr("dy", ".35em")
+				.style("text-anchor", "middle")
+				.attr("class", "textBottom")
+				.attr("y", 10);
+
+			var arc = d3.svg.arc()
+				.innerRadius(inner)
+				.outerRadius(r);
+
+			var arcOver = d3.svg.arc()
+				.innerRadius(inner + 5)
+				.outerRadius(r + 5);
+
+			var pie = d3.layout.pie()
+				.value(function (d) { return d.Value; });
+
+			var arcs = vis.selectAll("g.slice")
+				.data(pie)
+				.enter()
+					.append("svg:g")
+						.attr("class", "slice")
+						.on("mouseover", function (d) {
+							d3.select(this).select("path").transition()
+								.duration(200)
+								.attr("d", arcOver)
+
+							textTop.text(d3.select(this).datum().data.Label)
+								.attr("y", -10);
+							textBottom.text(d3.select(this).datum().data.Value)
+								.attr("y", 10);
+						})
+						.on("mouseout", function (d) {
+							d3.select(this).select("path").transition()
+								.duration(100)
+								.attr("d", arc);
+
+							textTop.text("Products")
+								.attr("y", 0);
+							textBottom.text("");
+						});
+
+			arcs.append("svg:path")
+				.attr("fill", function (d, i) { return color(i); })
+				.attr("d", arc);
+
+			vis.append("text")
+					.attr("x", 0)
+					.attr("y", 200)
+					.attr("text-anchor", "middle")
+					.text("Count of Products as seen from Cooler Display");
+
+			var legend = d3.select("div#chart2").append("svg")
+				.attr("class", "legend")
+				.attr("width", 100)
+				.attr("height", 380)
+				.selectAll("g")
+				.data(data)
+				.enter().append("g")
+				.attr("transform", function (d, i) { return "translate(0," + i * 20 + ")"; });
+
+			legend.append("rect")
+				.attr("width", 18)
+				.attr("height", 18)
+				.style("fill", function (d, i) { return color(i); });
+
+			legend.append("text")
+				.attr("x", 24)
+				.attr("y", 9)
+				.attr("dy", ".35em")
+				.text(function (d) { return d.Label; });
+		}
+
+		function populateChart2() {
+			var margin = { top: 20, right: 20, bottom: 30, left: 48 },
+				width = window.innerWidth - 695 - margin.left - margin.right,
+				height = 350 - margin.top - margin.bottom;
+
+			var x0 = d3.scale.ordinal()
+				.rangeRoundBands([0, width], .1);
+
+			var x1 = d3.scale.ordinal();
+
+			var y = d3.scale.linear()
+				.range([height, 0]);
+
+			var color = d3.scale.ordinal()
+				.range(["#FFF200", "#ED1C24", "#3F48CC"]);
+
+			var xAxis = d3.svg.axis()
+				.scale(x0)
+				.orient("bottom");
+
+			var yAxis = d3.svg.axis()
+				.scale(y)
+				.orient("left")
+				.tickFormat(d3.format(".2s"));
+
+			var tip = "";
+			if (d3.tip && d3.tip()) {
+				tip = d3.tip()
+				  .attr('class', 'd3-tip')
+				  .offset([-10, 0])
+				  .html(function (d) {
+				  	return "<strong>Count:</strong> <span>" + d.value + "</span>";
+				  });
+			}
+
+			var svg = d3.select("div#chart4").append("svg")
+				.attr("width", width + margin.left + margin.right)
+				.attr("height", height + margin.top + margin.bottom)
+			  .append("g")
+				.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+			if (tip) {
+				svg.call(tip);
+			}
+
+			var data = [
+				{ "Zone": "Zone 1", "Pure": 11493, "Impure": 18488, "Void Shelf > 30%": 4725 },
+				{ "Zone": "Zone 2", "Pure": 9024, "Impure": 10101, "Void Shelf > 30%": 2489 },
+				{ "Zone": "Zone 3", "Pure": 6263, "Impure": 4199, "Void Shelf > 30%": 1008 },
+				{ "Zone": "Zone 4", "Pure": 16781, "Impure": 14764, "Void Shelf > 30%": 9123 },
+				{ "Zone": "Zone 5", "Pure": 3169, "Impure": 4130, "Void Shelf > 30%": 1031 }
+			];
+
+			var ageNames = d3.keys(data[0]).filter(function (key) { return key !== "Zone"; });
+
+			data.forEach(function (d) {
+				d.ages = ageNames.map(function (name) { return { name: name, value: +d[name] }; });
+			});
+
+			x0.domain(data.map(function (d) { return d.Zone; }));
+			x1.domain(ageNames).rangeRoundBands([0, x0.rangeBand()]);
+			y.domain([0, d3.max(data, function (d) { return d3.max(d.ages, function (d) { return d.value; }); })]);
+
+			svg.append("g")
+				.attr("class", "x axis")
+				.attr("transform", "translate(0," + height + ")")
+				.call(xAxis);
+
+			svg.append("g")
+				.attr("class", "y axis")
+				.attr("transform", "translate(0 ,0)")
+				.call(yAxis);
+
+			// xAxis label
+			svg.append("text")
+				.attr("transform", "translate(" + (width / 2) + " ," + (height + margin.bottom) + ")")
+				.style("text-anchor", "middle")
+				.text("Area");
+
+			//yAxis label
+			svg.append("text")
+					.attr("transform", "rotate(-90)")
+					.attr("y", 0 - margin.left)
+					.attr("x", 0 - (height / 2))
+					.attr("dy", "1em")
+					.style("text-anchor", "middle")
+					.text("Count of Coolers");
+
+			var zone = svg.selectAll(".zone")
+				.data(data)
+			  .enter().append("g")
+				.attr("class", "g")
+				.attr("transform", function (d) { return "translate(" + x0(d.Zone) + ",0)"; });
+
+			zone.selectAll("rect")
+				.data(function (d) { return d.ages; })
+			  .enter().append("rect")
+				.attr("width", x1.rangeBand())
+				.attr("x", function (d) { return x1(d.name); })
+				.attr("y", function (d) { return y(d.value); })
+				.attr("height", function (d) { return height - y(d.value); })
+				.style("fill", function (d) { return color(d.name); })
+				.on('mouseover', tip.show)
+				.on('mouseout', tip.hide);
+
+			var legend = svg.selectAll(".legend")
+				.data(ageNames.slice())
+			  .enter().append("g")
+				.attr("class", "legend")
+				.attr("transform", function (d, i) { return "translate(0," + i * 20 + ")"; });
+
+			legend.append("rect")
+				.attr("x", width - 130)
+				.attr("width", 18)
+				.attr("height", 18)
+				.style("fill", color);
+
+			legend.append("text")
+				.attr("x", width - 100)
+				.attr("y", 9)
+				.attr("dy", ".35em")
+				.text(function (d) { return d; });
+
+
+			// Pie chart
+			data = [
+				{ "Label": "Virginia", "Value": 2882 },
+				{ "Label": "Texas", "Value": 8341 },
+				{ "Label": "California", "Value": 9120 },
+				{ "Label": "Ohio", "Value": 2495 },
+				{ "Label": "Florida", "Value": 7241 },
+				{ "Label": "Others", "Value": 21603 }
+			];
+
+			var w = 350,
+				h = 400,
+				r = 150,
+				inner = 70,
+				color = d3.scale.category20c();
+
+			var vis = d3.select("div#chart3")
+				.append("svg:svg")
+				.data([data])
+					.attr("width", w)
+					.attr("height", h)
+				.append("svg:g")
+					.attr("transform", "translate(" + r * 1.1 + "," + r * 1.1 + ")")
+
+			var textTop = vis.append("text")
+				.attr("dy", ".35em")
+				.style("text-anchor", "middle")
+				.attr("class", "textTop")
+				.text("Impure Coolers")
+				.attr("y", 0),
+			textBottom = vis.append("text")
+				.attr("dy", ".35em")
+				.style("text-anchor", "middle")
+				.attr("class", "textBottom")
+				.attr("y", 10);
+
+			var arc = d3.svg.arc()
+				.innerRadius(inner)
+				.outerRadius(r);
+
+			var arcOver = d3.svg.arc()
+				.innerRadius(inner + 5)
+				.outerRadius(r + 5);
+
+			var pie = d3.layout.pie()
+				.value(function (d) { return d.Value; });
+
+			var arcs = vis.selectAll("g.slice")
+				.data(pie)
+				.enter()
+					.append("svg:g")
+						.attr("class", "slice")
+						.on("mouseover", function (d) {
+							d3.select(this).select("path").transition()
+								.duration(200)
+								.attr("d", arcOver)
+
+							textTop.text(d3.select(this).datum().data.Label)
+								.attr("y", -10);
+							textBottom.text(d3.select(this).datum().data.Value)
+								.attr("y", 10);
+						})
+						.on("mouseout", function (d) {
+							d3.select(this).select("path").transition()
+								.duration(100)
+								.attr("d", arc);
+
+							textTop.text("Impure Coolers")
+								.attr("y", 0);
+							textBottom.text("");
+						});
+
+			arcs.append("svg:path")
+				.attr("fill", function (d, i) { return color(i); })
+				.attr("d", arc);
+
+			vis.append("text")
+					.attr("x", 0)
+					.attr("y", 200)
+					.attr("text-anchor", "middle")
+					.text("Count of Impure Coolers");
+
+			var legend = d3.select("div#chart3").append("svg")
+				.attr("class", "legend")
+				.attr("width", 100)
+				.attr("height", 380)
+				.selectAll("g")
+				.data(data)
+				.enter().append("g")
+				.attr("transform", function (d, i) { return "translate(0," + i * 20 + ")"; });
+
+			legend.append("rect")
+				.attr("width", 18)
+				.attr("height", 18)
+				.style("fill", function (d, i) { return color(i); });
+
+			legend.append("text")
+				.attr("x", 24)
+				.attr("y", 9)
+				.attr("dy", ".35em")
+				.text(function (d) { return d.Label; });
+		}
+
+		line1Data = {};
+
+		function lineChart1(zone) {
+			//Second
+
+			//Width and height
+			var w = (window.innerWidth - (window.innerWidth / 1.5));
+			var h = 350;
+			var padding = 50;
+
+			var now = d3.time.hour.utc(new Date);
+
+			var data = [
+				{ "Zone": "Zone 1", "Pure": 11493, "Impure": 18488, "Void Shelf > 30%": 4725 },
+				{ "Zone": "Zone 2", "Pure": 9024, "Impure": 10101, "Void Shelf > 30%": 2489 },
+				{ "Zone": "Zone 3", "Pure": 6263, "Impure": 4199, "Void Shelf > 30%": 1008 },
+				{ "Zone": "Zone 4", "Pure": 16781, "Impure": 14764, "Void Shelf > 30%": 9123 },
+				{ "Zone": "Zone 5", "Pure": 3169, "Impure": 4130, "Void Shelf > 30%": 1031 }
+			];
+
+			var dataset = line1Data[zone];
+			if (!dataset) {
+				dataset = [];
+				var products = ["Void Shelf > 30%", "Pure"];
+				for (var product = 0; product < 2; product++) {
+					var zoneDataSet = [];
+					var baseNumber = data[zone][products[product]];
+					var baseDate = new Date(2014, 9, 31);
+					for (var i = 4; i > -1; i--) {
+						zoneDataSet[i] = { x: baseDate, y: baseNumber };
+						baseDate = baseDate.add(Date.DAY, -7);
+						baseNumber = baseNumber - (Math.random() * (baseNumber / 15)) + (Math.random() * (baseNumber / 15));
+					}
+					dataset.push(zoneDataSet);
+				}
+				line1Data[zone] = dataset;
+			}
+
+			var color_hash = {
+				0: ["Void Shelf > 30%", "#3F48CC"],
+				1: ["Purity", "#ED1C24"]
+			}
+
+			// Define axis ranges & scales
+			var yExtents = d3.extent(d3.merge(dataset), function (d) { return d.y; });
+			var xExtents = d3.extent(d3.merge(dataset), function (d) { return d.x; });
+
+			var xScale = d3.time.scale()
+				   .domain([xExtents[0], xExtents[1]])
+				   .range([padding, w - padding * 2]);
+
+			var yScale = d3.scale.linear()
+				   .domain([0, yExtents[1]])
+				   .range([h - padding, padding]);
+
+			var tip = "";
+			if (d3.tip && d3.tip()) {
+				tip = d3.tip()
+				  .attr('class', 'd3-tip')
+				  .offset([-10, 0])
+				  .html(function (d) {
+				  	return "<strong>Count:</strong> <span>" + d.y + "</span>";
+				  });
+			}
+
+			// Create SVG element
+			var svg = d3.select("div#chart5")
+				.append("svg")
+				.attr("width", w + 100)
+				.attr("height", h);
+			if (tip) {
+				svg.call(tip);
+			}
+
+			// Define lines
+			var line = d3.svg.line()
+				   .x(function (d) { return x(d.x); })
+				   .y(function (d) { return y(d.y1, d.y2); });
+
+			var pathContainers = svg.selectAll('g.line')
+			.data(dataset);
+
+			pathContainers.enter().append('g')
+			.attr('class', 'line')
+			.attr("style", function (d) {
+				return "stroke: " + color_hash[dataset.indexOf(d)][1];
+			});
+
+			pathContainers.selectAll('path')
+			.data(function (d) { return [d]; }) // continues the data from the pathContainer
+			.enter().append('path')
+			  .attr('d', d3.svg.line()
+				.x(function (d) { return xScale(d.x); })
+				.y(function (d) { return yScale(d.y); })
+			  );
+
+			// add circles
+			pathContainers.selectAll('circle')
+			.data(function (d) { return d; })
+			.enter().append('circle')
+			.attr('cx', function (d) { return xScale(d.x); })
+			.attr('cy', function (d) { return yScale(d.y); })
+			.attr('r', 3)
+			.on('mouseover', tip.show)
+			.on('mouseout', tip.hide);
+
+			//Define X axis
+			var xAxis = d3.svg.axis()
+					.scale(xScale)
+					.orient("bottom")
+					.ticks(5);
+
+			//Define Y axis
+			var yAxis = d3.svg.axis()
+					.scale(yScale)
+					.orient("left")
+					.ticks(5);
+
+			//Add X axis
+			svg.append("g")
+			.attr("class", "axis")
+			.attr("transform", "translate(0," + (h - padding) + ")")
+			.call(xAxis);
+
+			//Add Y axis
+			svg.append("g")
+			.attr("class", "axis")
+			.attr("transform", "translate(" + padding + ",0)")
+			.call(yAxis);
+
+			// Add title
+			svg.append("svg:text")
+				.attr("class", "title")
+			   .attr("x", 20)
+			   .attr("y", 20)
+			   .text("Count of Coolers");
+
+
+			// add legend
+			var legend = svg.append("g")
+			  .attr("class", "legend")
+			  .attr("x", w - 65)
+			  .attr("y", 25)
+			  .attr("height", 100)
+			  .attr("width", 100);
+
+			legend.selectAll('g').data(dataset)
+			  .enter()
+			  .append('g')
+			  .each(function (d, i) {
+			  	var g = d3.select(this);
+			  	g.append("rect")
+				  .attr("x", w - 65)
+				  .attr("y", i * 25)
+				  .attr("width", 18)
+				  .attr("height", 18)
+				  .style("fill", color_hash[String(i)][1]);
+
+			  	g.append("text")
+				  .attr("x", w - 40)
+				  .attr("y", i * 25 + 12)
+				  .attr("height", 30)
+				  .attr("width", 150)
+				  .text(color_hash[String(i)][0]);
+
+			  });
+		}
+
+		line2Data = {};
+
+		function lineChart2(zone) {
+			//Second
+
+			//Width and height
+			var w = (window.innerWidth - (window.innerWidth / 1.5));
+			var h = 350;
+			var padding = 50;
+
+			var now = d3.time.hour.utc(new Date);
+
+			var data = [
+				{ "Zone": "Zone 1", "Coke": 98729, "Coke Zero": 82753, "Diet Coke": 82341, "Sprite": 25421, "Dasani": 92521, "Other": 82752 },
+				{ "Zone": "Zone 2", "Coke": 75823, "Coke Zero": 72658, "Diet Coke": 24911, "Sprite": 12414, "Dasani": 62313, "Other": 28758 },
+				{ "Zone": "Zone 3", "Coke": 85797, "Coke Zero": 24181, "Diet Coke": 12349, "Sprite": 12545, "Dasani": 12341, "Other": 12983 },
+				{ "Zone": "Zone 4", "Coke": 29859, "Coke Zero": 29349, "Diet Coke": 11823, "Sprite": 11451, "Dasani": 45256, "Other": 12349 },
+				{ "Zone": "Zone 5", "Coke": 21949, "Coke Zero": 29478, "Diet Coke": 23941, "Sprite": 21433, "Dasani": 25451, "Other": 18923 }
+			];
+
+			var dataset = line2Data[zone];
+			if (!dataset) {
+				dataset = [];
+				var products = ["Coke", "Coke Zero", "Diet Coke", "Sprite", "Dasani", "Other"];
+				for (var product = 0; product < 6; product++) {
+					var zoneDataSet = [];
+					var baseNumber = data[zone][products[product]];
+					var baseDate = new Date(2014, 9, 31);
+					for (var i = 4; i > -1; i--) {
+						zoneDataSet[i] = { x: baseDate, y: baseNumber };
+						baseDate = baseDate.add(Date.DAY, -7);
+						baseNumber = baseNumber - (Math.random() * (baseNumber / 15)) + (Math.random() * (baseNumber / 15));
+					}
+					dataset.push(zoneDataSet);
+				}
+				line2Data[zone] = dataset;
+			}
+
+			var color_hash = {
+				0: ["Coke", "#FF0000"],
+				1: ["Coke Zero", "#000000"],
+				2: ["Diet Coke", "#808080"],
+				3: ["Sprite", "#B5E61D"],
+				4: ["Dasani", "#0000FF"],
+				5: ["Other", "#C8BFE7"]
+			}
+
+			// Define axis ranges & scales
+			var yExtents = d3.extent(d3.merge(dataset), function (d) { return d.y; });
+			var xExtents = d3.extent(d3.merge(dataset), function (d) { return d.x; });
+
+			var xScale = d3.time.scale()
+				   .domain([xExtents[0], xExtents[1]])
+				   .range([padding, w - padding * 2]);
+
+			var yScale = d3.scale.linear()
+				   .domain([0, yExtents[1]])
+				   .range([h - padding, padding]);
+
+			var tip = "";
+			if (d3.tip && d3.tip()) {
+				tip = d3.tip()
+				  .attr('class', 'd3-tip')
+				  .offset([-10, 0])
+				  .html(function (d) {
+				  	return "<strong>Count:</strong> <span>" + d.y + "</span>";
+				  });
+			}
+
+			// Create SVG element
+			var svg = d3.select("div#chart6")
+				.append("svg")
+				.attr("width", w + 100)
+				.attr("height", h);
+			if (tip) {
+				svg.call(tip);
+			}
+
+			// Define lines
+			var line = d3.svg.line()
+				   .x(function (d) { return x(d.x); })
+				   .y(function (d) { return y(d.y1, d.y2, d.y3, d.y4, d.y5, d.y6); });
+
+			var pathContainers = svg.selectAll('g.line')
+			.data(dataset);
+
+			pathContainers.enter().append('g')
+			.attr('class', 'line')
+			.attr("style", function (d) {
+				return "stroke: " + color_hash[dataset.indexOf(d)][1];
+			});
+
+			pathContainers.selectAll('path')
+			.data(function (d) { return [d]; }) // continues the data from the pathContainer
+			.enter().append('path')
+			  .attr('d', d3.svg.line()
+				.x(function (d) { return xScale(d.x); })
+				.y(function (d) { return yScale(d.y); })
+			  );
+
+			// add circles
+			pathContainers.selectAll('circle')
+			.data(function (d) { return d; })
+			.enter().append('circle')
+			.attr('cx', function (d) { return xScale(d.x); })
+			.attr('cy', function (d) { return yScale(d.y); })
+			.attr('r', 3)
+			.on('mouseover', tip.show)
+			.on('mouseout', tip.hide);
+
+			//Define X axis
+			var xAxis = d3.svg.axis()
+					.scale(xScale)
+					.orient("bottom")
+					.ticks(5);
+
+			//Define Y axis
+			var yAxis = d3.svg.axis()
+					.scale(yScale)
+					.orient("left")
+					.ticks(5);
+
+			//Add X axis
+			svg.append("g")
+			.attr("class", "axis")
+			.attr("transform", "translate(0," + (h - padding) + ")")
+			.call(xAxis);
+
+			//Add Y axis
+			svg.append("g")
+			.attr("class", "axis")
+			.attr("transform", "translate(" + padding + ",0)")
+			.call(yAxis);
+
+			// Add title
+			svg.append("svg:text")
+				.attr("class", "title")
+			   .attr("x", 20)
+			   .attr("y", 20)
+			   .text("Count of Products");
+
+
+			// add legend
+			var legend = svg.append("g")
+			  .attr("class", "legend")
+			  .attr("x", w - 65)
+			  .attr("y", 25)
+			  .attr("height", 100)
+			  .attr("width", 100);
+
+			legend.selectAll('g').data(dataset)
+			  .enter()
+			  .append('g')
+			  .each(function (d, i) {
+			  	var g = d3.select(this);
+			  	g.append("rect")
+				  .attr("x", w - 65)
+				  .attr("y", i * 25)
+				  .attr("width", 18)
+				  .attr("height", 18)
+				  .style("fill", color_hash[String(i)][1]);
+
+			  	g.append("text")
+				  .attr("x", w - 40)
+				  .attr("y", i * 25 + 12)
+				  .attr("height", 30)
+				  .attr("width", 150)
+				  .text(color_hash[String(i)][0]);
+
+			  });
+		}
+		// ** Update data section (Called from the onclick)
+		function updateLineChartsData(sel) {
+			document.getElementById("chart5").innerHTML = "";
+			document.getElementById("chart6").innerHTML = "";
+			var zone = sel.value;
+			lineChart1(zone);
+			lineChart2(zone);
+		}
+	</script>
+</body>

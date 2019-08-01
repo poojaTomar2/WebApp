@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<style>
+		#fit-image {
+			 height: 100%;
+			 width: 100%;
+		}
+	</style>
+	<title id="title">eBest Promotions</title>
+</head>
+<body onload="onPageLoad()">
+	<div>
+		<h2 id="linkOutlet">Go to the N/A Outlet</h2>
+		<img id="fit-image"  src="" onclick="onImageClick(this)">
+	</div>
+	<script>
+		function onPageLoad() {
+			linkOutlet.innerHTML = 'Go to Coca-Cola Outlet to avail this offer';
+			var image = document.getElementById("fit-image");
+			image.src = "https://test.cooleriot.com/images/cokecombo.jpg";
+			image.dataset.isCokeCombo = true;
+		}
+		function randomString(length, chars) {
+			var result = '';
+			for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
+			return result;
+		}
+		function makeid() {
+			var text = "";
+			var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+			for (var i = 0; i < 5; i++)
+				text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+			return text;
+		}
+		function onImageClick(img) {
+			var coupon = randomString(7, makeid());
+			window.alert("Your coupon number is " + coupon);
+		}
+	</script>
+</body>
+</html>

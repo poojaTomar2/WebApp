@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<style>
+		#fit-image {
+			 height: 100%;
+			 width: 100%;
+		}
+	</style>
+	<title id="title">eBest Promotions</title>
+</head>
+<body onload="onPageLoad()">
+	<div>
+		<h2 id="linkOutlet">Go to the N/A Outlet</h2>
+		<img id="fit-image"  src="" onclick="onImageClick(this)">
+	</div>
+	<script>
+		function onPageLoad() {
+			var linkOutlet = document.getElementById('linkOutlet');
+			var title = document.getElementById("title");
+			var isCokeCombo = eval(getURLParameter('isCokeCombo'));
+			var locationName = getURLParameter('locationName');
+			linkOutlet.innerHTML = locationName && isCokeCombo ? 'Go to the ' + locationName + ' Outlet to avail this offer' : 'Like to win a chance to win a free trip to Hawaii? Click on below image to take the following survey to participate';
+			var image = document.getElementById("fit-image");
+			image.src = isCokeCombo ? "https://test.cooleriot.com/images/cokecombo.jpg" : "https://test.cooleriot.com/images/hawai.png";
+			image.dataset.isCokeCombo = isCokeCombo;
+		}
+
+
+		function getURLParameter(name) {
+			var url = location.href;
+			name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+			var regexS = "[\\?&]" + name + "=([^&#]*)";
+			var regex = new RegExp(regexS);
+			var results = regex.exec(url);
+			return results == null ? null : results[1].replace(/%20/g, " ");
+		}
+		function randomString(length, chars) {
+			var result = '';
+			for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
+			return result;
+		}
+		function makeid() {
+			var text = "";
+			var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+			for (var i = 0; i < 5; i++)
+				text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+			return text;
+		}
+		function onImageClick(img) {
+			var isCoke = eval(img.dataset.isCokeCombo);
+			if (isCoke) {
+
+				var coupon = randomString(7, makeid());
+				window.alert("Your coupon number is " + coupon);
+			}
+			else {
+				window.location = '../WinTrip.html';
+			}
+		}
+	</script>
+</body>
+</html>

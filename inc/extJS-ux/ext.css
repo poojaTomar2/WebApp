@@ -1,0 +1,545 @@
+﻿table.x-date-inner {
+    /* 11/13/09 EAC Changed from auto to fixed width to fix Chrome/Safari. */
+    /* this width relates to the 130px below. */
+    width: 175px;
+    table-layout:fixed;
+}
+
+.add {
+    background-image:url(img/add.gif) !important;
+}
+
+.delete {
+    background-image:url(img/delete.gif) !important;
+}
+
+.new {
+    background-image:url(img/new.gif) !important;
+}
+
+.save {
+    background-image:url(img/save.gif) !important;
+}
+
+.export, .exportExcel {
+    background-image:url(img/excel_export.png) !important;
+}
+.exportPDF {
+    background-image:url(img/pdf_export.png) !important;
+}
+
+.exportCSV {
+    background-image:url(img/csv_export.gif) !important;
+}
+.cancel
+{
+	background-image:url(img/cancel.png) !important;
+}
+.x-form-field, .x-combo-list-item
+{
+	font-size:11px !important;
+}
+
+.x-form-item-label
+{
+	font-size:11px !important;
+	padding: 1px 1px 1px 0pt !important;
+}
+
+.x-form-item
+{
+	margin-bottom:1px;
+}
+
+.x-form-checkbox
+{
+	margin-top:3px;
+	border: none;
+}
+
+.x-field-required label
+{
+	color: #ff0000;
+}
+/* For LovCombo*/
+
+.ux-lovcombo-icon {
+    width:16px;
+    height:16px;
+    float:left;
+    background-position: -1px -1px ! important;
+    background-repeat:no-repeat ! important;
+}
+.ux-lovcombo-icon-checked {
+    background: transparent url(../extjs/resources/images/default/menu/checked.gif);
+}
+.ux-lovcombo-icon-unchecked {
+    background: transparent url(../extjs/resources/images/default/menu/unchecked.gif);
+}
+.moreTable
+{
+	font-size:11px;
+	border:1px;
+}
+
+/* [OPTIONAL] -- may be used for either Ext.grid.GroupSummary / Ext.ux.grid.GridSummary plugins */
+.x-grid3-summary-row{border-left:1px solid #fff;border-right:1px solid #fff;color:#333;background:#f1f2f4;}
+.x-grid3-summary-row .x-grid3-cell-inner{font-weight:bold;padding-bottom:4px;}
+.x-grid-hide-summary .x-grid3-summary-row{display:none;}
+
+
+/* [REQUIRED] (by Ext.ux.grid.GridSummary plugin) */
+.x-grid3-gridsummary-row-inner{overflow:hidden;}
+.x-grid3-gridsummary-row-offset{width:10000px;}
+.x-grid-hide-gridsummary .x-grid3-gridsummary-row-inner{display:none;}		
+
+.help {
+    background-image:url(img/help.png) !important;
+}
+.speaker {
+    background-image:url(img/speaker.png) !important;
+}
+.video {
+    background-image:url(img/video.png) !important;
+}
+.notvideo {
+    background-image:url(img/video_icon.png) !important;
+}
+.x-form-focus, textarea.x-form-focus
+{
+	border:1px solid #7eadd9;
+	background-color:#d9e8fb;
+	/*
+	background-image:url(../images/default/grid/row-sel.gif);
+	*/
+}
+
+.ux-checked {
+    width:100%;
+    height:16px;
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-color:transparent;
+	background-image:url(../extJS/resources/images/default/menu/unchecked.gif);
+}
+
+
+.ux-checked-on {
+    width:100%;
+    height:16px;
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-color:transparent;
+	background-image:url(../extJS/resources/images/default/menu/checked.gif);
+}
+
+.msg .x-box-mc {
+    font-size:14px;
+}
+#msg-div {
+    position:absolute;
+    left:35%;
+    top:10px;
+    width:250px;
+    z-index:20000;
+}
+
+.hyperlink, .x-form-hyperlink
+{
+	color: blue;
+	text-decoration: underline;
+	cursor: pointer;
+}
+/* Wrap headings */
+.x-grid3-hd-inner
+{
+	white-space:normal !important;
+}
+.ux-helpicon-icon {
+    background-image:url(img/help-field.png) !important;
+}
+.x-form-file-wrap {
+    position: relative;
+    height: 22px;
+}
+.x-form-file-wrap .x-form-file {
+	position: absolute;
+	right: 0;
+	-moz-opacity: 0;
+	filter:alpha(opacity: 0);
+	opacity: 0;
+	z-index: 2;
+    height: 22px;
+}
+.x-form-file-wrap .x-form-file-btn {
+	position: absolute;
+	right: 0;
+	z-index: 1;
+}
+.x-form-file-wrap .x-form-file-text {
+    position: absolute;
+    left: 0;
+    z-index: 3;
+    color: #777;
+}
+
+.birthdayDoNotShow
+{
+	font-size: 10px;
+}
+
+.messageTip {
+	CLEAR: left; BORDER-RIGHT: #c0c0c0 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #c0c0c0 1px solid; PADDING-LEFT: 35px; FONT-WEIGHT: normal; BACKGROUND: url(img/ico-message-tip.gif) #fffecd no-repeat 10px center; PADDING-BOTTOM: 5px; MARGIN: 20px 0px; BORDER-LEFT: #c0c0c0 1px solid; WIDTH: 80%; COLOR: #111111; PADDING-TOP: 5px; BORDER-BOTTOM: #c0c0c0 1px solid
+}
+.closedTicket-icon {
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-color:transparent;
+	background-image:url(img/closed.png) !important;
+}
+.allTicket-icon {
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-color:transparent;
+	background-image:url(img/open.png) !important;
+}
+
+.priorityHigh {
+	background-image:url(img/red.png);  
+	background-repeat: no-repeat;
+	background-position: center center;
+	cursor: pointer;
+}
+.priorityNormal {
+	background-image:url(img/green.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	cursor: pointer;
+}
+.priorityMedium {
+	background-image:url(img/blue.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	cursor: pointer;
+}
+.CreatedOnandModifiedOn {
+	background-image:url(img/Createdon.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	cursor: pointer;
+}
+.downLoadedAttachment{
+	background-image:url(img/Downloads-Folder-16x16.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	cursor: default ;
+}
+.deleteAttachment{
+	background-image:url(img/delete.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+	cursor: pointer ;
+}
+.ext-ie .x-menu-item-icon {left: -24px; top: 0px;}
+.ext-ie6 .x-menu-item-icon {left: -24px; top: 0px;}
+.ext-strict .x-menu-item-icon {left: 3px; top: 3px;}
+
+.ticker_text 
+{
+	text-decoration: none;
+	color: Black
+}
+
+/* Fix for cherry delete icon*/
+.x-grid3-col .x-menu-item-icon
+{
+    position:relative !important;
+}
+.refresh {
+    background-image:url(img/refresh.png) !important;
+}
+
+.ux-mselect-valid { border: 1px solid #B5B8C8; overflow:auto; }
+.ux-mselect-invalid { border:0; overflow:auto; }
+
+.ux-mselect .x-combo-list-item
+{
+    cursor:pointer; margin:1px;
+    padding-left: 16px;
+    background-position:left center;
+    background-repeat:no-repeat;
+	background-image:url(../extJS/resources/images/default/menu/unchecked.gif);
+}
+
+.ux-mselect .x-combo-selected
+{
+	background-image:url(../extJS/resources/images/default/menu/checked.gif);
+}
+
+.addTrigger  {
+	background-image:url(img/add.gif) !important;
+	background-repeat: no-repeat;
+	background-position:0px !important;
+}
+
+.starRed, .starGrey {
+    background-repeat:no-repeat;
+	background-position: left top;
+	cursor: pointer;
+	display:inline-block;
+	width:18px;
+}
+
+.starRed {
+    background-image:url(img/star_red.png) !important;
+}
+.starGrey {
+    background-image:url(img/star_grey.png) !important;
+}
+
+.GMapMarkerToolTip tr td
+{
+	font-family: Verdana;
+	font-size: 10px
+}
+.recurrence
+{
+    background-image:url(img/recycle.png) !important;
+}
+
+.ext-chrome .x-date-picker {
+	width: 185px;
+}
+
+.x-icon { width: 16px; height: 16px; }
+
+.ux-focusframe 
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10000000;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    border:solid 2px gray;
+}
+
+.align-right
+{
+	text-align:right;
+}
+
+.qtipwrap
+{
+	word-wrap: break-word !important;
+	white-space: normal !important;
+}
+
+.imgRightArrow {
+	background-image: url(img/arrow_left_blue.png) !important;
+	height: 16px;
+	width: 16px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	cursor: pointer;
+	text-align: center;
+}
+
+
+.grid-row-back-color-SteelBlue
+{
+	background-color: SteelBlue !important;
+}
+
+.grid-row-back-color-DarkSeaGreen
+{
+	background-color: DarkSeaGreen !important;
+}
+.grid-row-back-color-IndianRed
+{
+	background-color:  IndianRed !important;
+}
+.grid-row-back-color-LightGoldenRodYellow
+{
+	background-color:  LightGoldenRodYellow !important;
+}
+.grid-row-back-color-Pink
+{
+	background-color: Pink !important;
+}
+.grid-row-back-color-Bisque
+{
+	background-color:  Bisque !important;
+}
+.grid-row-back-color-LightBlue 
+{
+	background-color: LightBlue  !important;
+}
+.grid-row-back-color-Silver
+{
+	background-color: Silver !important;
+}
+.grid-row-back-color-LightGreen
+{
+	background-color: LightGreen !important;
+}
+.grid-row-back-color-Orange
+{
+	background-color: Orange !important;
+}
+.grid-row-back-color-Purple
+{
+	background-color: Purple !important;
+}
+.grid-row-back-color-LightPurple
+{
+	background-color: MediumPurple !important;
+}
+.grid-row-back-color-Cyan
+{
+	background-color: Cyan !important;
+}
+.grid-row-back-color-Brown
+{
+	background-color: Brown !important;
+}
+.grid-row-back-color-Magenta
+{
+	background-color: Magenta !important;
+}
+.grid-row-back-color-Black
+{
+	background-color: Black !important;
+	color: white !important;
+}
+
+
+/*!
+ * Ext JS Library 3.4.0
+ * Copyright(c) 2006-2011 Sencha Inc.
+ * licensing@sencha.com
+ * http://www.sencha.com/license
+ */
+.x-grid3-locked, .x-grid3-unlocked {
+	overflow: hidden;
+	position: absolute;
+}
+
+.x-grid3-locked {
+	border-right: 1px solid #99BBE8;
+}
+
+.x-grid3-locked .x-grid3-scroller {
+	overflow: hidden;
+}
+
+.x-grid3-locked .x-grid3-row {
+	border-right: 0;
+}
+
+.x-grid3-scroll-spacer {
+	height: 19px;
+}
+
+.x-grid3-unlocked .x-grid3-header-offset {
+	padding-left: 0;
+}
+
+.x-grid3-unlocked .x-grid3-row {
+	border-left: 0;
+}
+
+.concentric_rings_red {
+	background-image: url(img/concentric_rings_red.png) !important;
+}
+
+.concentric_rings_green {
+	background-image: url(img/concentric_rings_green.png) !important;
+}
+
+.checklist_Icon {
+	background-image: url(img/checklist.png) !important;
+}
+
+.arrow_refresh_Icon {
+	background-image: url(img/arrow_refresh.png) !important;
+}
+
+.red_circle_Icon {
+	background-image: url(img/red_circle.png) !important;
+}
+
+.green-circle_Icon {
+	background-image: url(img/green-circle-hi.png) !important;
+}
+
+/* Box Select CSS Begins */
+ul.holder { margin: 0; overflow: hidden; height: auto ! important; }
+ul.holder li { float: left; display: inline; list-style-type: none; margin: 3px 2px 2px 1px; line-height: 1em; -moz-user-select: none}
+body.ext-ie7 ul.holder li {margin: 3px 0 2px 3px;line-height: 1.2em;padding-bottom: 2px}
+body.ext-ie6 ul.holder li {margin: 2px 0 2px 3px;line-height:1.1em;padding-bottom: 2px}
+body.ext-gecko ul.holder li {margin: 1px 0 2px 3px;}
+ul.holder li.bit-box { position:relative; -moz-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px; border: 1px solid #CAD8F3; background: #DEE7F8; padding: 1px 15px 1px 5px; }
+ul.holder li.bit-hover { background: #BBCEF1; border: 1px solid #6D95E0; }
+ul.holder li.bit-box-focus { border-color: #598BEC; background: #598BEC; color: #fff; }
+ul.holder li.bit-input{}
+ul.holder li.bit-input input { margin: 1px 0 2px 0; border: 0; outline: 0; padding: 0; }
+ /* no left/right padding here please */ulul.holder li.bit-input input.smallinput { width: 20px; }
+.holder li.bit-box a.closebutton { position: absolute; right: 4px; top: 5px; display: block; width: 7px; height: 7px; font-size: 1px; background: url(../extJS-ux/img/close.gif); }
+ul.holder li.bit-box a.closebutton:hover { background-position: 7px; }
+ul.holder li.bit-box-focus a.closebutton, ul.holder li.bit-box-focus a.closebutton:hover { background-position: bottom; }
+li.bit-input input{background:none;}
+/* Box Select CSS Ends */
+
+
+/** Spinner css Begins folow link http://beanstore.encs.concordia.ca/MycoCLAP/trac/browser/mycoCLAPv2/WebContent/lib/ext-3.1.0/ux/css/Spinner.css?rev=238*/
+
+.x-form-field-wrap .x-form-spinner-trigger {
+	background: transparent url(img/spinner.gif) no-repeat 0 0;
+}
+
+.x-form-field-wrap .x-form-spinner-overup {
+	background-position: -17px 0;
+}
+
+.x-form-field-wrap .x-form-spinner-clickup {
+	background-position: -34px 0;
+}
+
+.x-form-field-wrap .x-form-spinner-overdown {
+	background-position: -51px 0;
+}
+
+.x-form-field-wrap .x-form-spinner-clickdown {
+	background-position: -68px 0;
+}
+
+.x-trigger-wrap-focus .x-form-spinner-trigger {
+	background-position: -85px 0;
+}
+
+.x-trigger-wrap-focus .x-form-spinner-overup {
+	background-position: -102px 0;
+}
+
+.x-trigger-wrap-focus .x-form-spinner-clickup {
+	background-position: -119px 0;
+}
+
+.x-trigger-wrap-focus .x-form-spinner-overdown {
+	background-position: -136px 0;
+}
+
+.x-trigger-wrap-focus .x-form-spinner-clickdown {
+	background-position: -153px 0;
+}
+
+.x-trigger-wrap-focus .x-form-trigger {
+	border-bottom: 1px solid #7eadd9;
+}
+
+.x-trigger-wrap-focus .x-form-spinner-splitter {
+	background-position: -14px 0;
+}
+ /*Spinner css end*/

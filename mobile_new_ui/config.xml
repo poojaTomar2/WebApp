@@ -1,0 +1,43 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.insigmainc.Html5App" android-versionCode="2" ios-CFBundleVersion="3.3.3" version="2016.05.20" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+	<name>Cooler iOt</name>
+	<description>
+		Cooler Mobile App
+	</description>
+	<author email="support@phonegap.com" href="http://phonegap.com">
+		PhoneGap Team
+	</author>
+	<preference name="android-minSdkVersion" value="19"/>
+	<preference name="android-targetSdkVersion" value="23" />
+	<preference name="phonegap-version" value="cli-5.2.0" />
+	<preference name="fullscreen" value="false" />
+	<icon src="resources/icons/coke_bottle_icon.png" />
+	<gap:plugin name="cordova-plugin-file" version="1.3.1" source="npm"/>
+	<gap:plugin name="cordova-plugin-device" source="npm"/>
+	<gap:plugin name="org.apache.cordova.network-information" />
+	<gap:plugin name="org.apache.cordova.file-transfer" version="0.5.0" />
+	<gap:plugin name="org.apache.cordova.geolocation" version ="0.3.10" />
+	<gap:plugin name="com.phonegap.plugins.barcodescanner" version="2.0.0" />
+	<gap:plugin name="cordova-plugin-bluetoothle" source="npm"  version="3.0.1" />
+	<gap:plugin name="cordova-plugin-x-toast" source="npm" />
+	<gap:plugin name="cordova-sqlite-ext" source="npm" version="0.8.0" />
+	<plugin name="cordova-plugin-whitelist" />
+	<plugin name="cordova-push-notifications" version = "1.1.1"/>
+	<gap:plugin name="org.apache.cordova.device" />
+	<gap:plugin name="cordova-plugin-customurlscheme" source="npm">
+		<param name="URL_SCHEME" value="cooleriotmobile" />
+	</gap:plugin>
+	<gap:plugin name="com.borismus.webintent" spec="3.0.0" source="pgb" />
+	<preference name="AndroidPersistentFileLocation" value="Compatibility" />
+	<access origin="*" />
+	<feature name="BarcodeScanner">
+		<param name="android-package" value="com.phonegap.plugins.barcodescanner.BarcodeScanner" />
+	</feature>
+	<gap:plugin name="uk.co.whiteoctober.cordova.appversion" version="0.1.4" />
+	<feature name="NetworkStatus">
+		<param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
+	</feature>
+	<allow-navigation href="http://*/*" />
+	<allow-navigation href="https://*/*" />
+	<allow-navigation href="data:*" />
+</widget>

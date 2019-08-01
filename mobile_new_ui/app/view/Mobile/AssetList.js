@@ -1,0 +1,92 @@
+﻿Ext.define('CoolerIoTMobile.view.Mobile.AssetList', {
+    extend: 'Ext.dataview.List',
+    xtype: 'mobile-assetList',
+    config: {
+        plugins: [
+            {
+                xclass: 'Ext.plugin.PullRefresh',
+                pullText: 'Pull down to refresh'
+            },
+			{
+			    xclass: 'Ext.plugin.ListPaging',
+			    loadMoreText: 'Load More Assets...',
+			    noMoreRecordsText: 'No More Assets',
+			    autoPaging: true
+			}
+        ],
+        title: CoolerIoTMobile.Localization.AssetListTitle,
+        listeners: {
+            painted: function (panel, oOpts) {
+                var store = Ext.getStore('AssetList'),
+				    storeProxy = store.getProxy(),
+				    mainNavigationView = this.up().up(),
+				    value = mainNavigationView.down('#searchAssetField').getValue();
+                storeProxy.setExtraParams({ action: 'list', AsArray: 0, limit: 25, SerialNumber: '%' + value, IncludeSummaryInList: 1 });
+                store.loadPage(1);
+            }
+        },
+        emptyText: CoolerIoTMobile.Localization.CoolSummaryListEmptyText,
+        store: 'AssetList',
+        itemId: 'CoolerAssetList',
+        scrollToTopOnRefresh: true,
+        striped: true,
+        pinHeaders: false,
+        grouped: true,
+        cls: 'asset-item-list-container',
+        itemTpl: new Ext.XTemplate('<div class="asset-item-container">',
+                            '<ul class="cooleriot-list-view">',
+							'<li class="asset-first-row cooleriot-display-table">',
+								'<span class="cooleriot-table-cell text-center iot-col-12_5">',
+									'<span class="iot-mid-span">',
+										'<span class=" iot-icon iot-door-icon"></span>',
+									'</span>',
+								'</span>',
+								'<span class="cooleriot-table-cell text-center iot-col-12_5">',
+									'<span class="iot-mid-span">',
+										'<span class=" iot-icon iot-health-icon"></span>',
+									'</span>',
+								'</span>',
+								'<span class="cooleriot-table-cell text-center iot-col-12_5">',
+									'<span class="iot-mid-span">',
+										'<span class=" iot-icon iot-power-icon"></span>',
+									'</span>',
+								'</span>',
+								'<span class="cooleriot-table-cell text-center iot-col-12_5">',
+									'<span class="iot-mid-span">',
+										'<span class=" iot-icon iot-purity-icon"></span>',
+									'</span>',
+								'</span>',
+								'<span class="cooleriot-table-cell text-center iot-col-12_5">',
+									'<span class="iot-mid-span">',
+										'<span class=" iot-icon iot-planogram-icon"></span>',
+									'</span>',
+								'</span>',
+								'<span class="cooleriot-table-cell text-center iot-col-12_5">',
+									'<span class="iot-mid-span">',
+										'<span class=" iot-icon iot-ping-icon"></span>',
+									'</span>',
+								'</span>',
+								'<span class="cooleriot-table-cell text-center iot-col-12_5">',
+									'<span class="iot-mid-span">',
+										'<span class=" iot-icon iot-pin-icon"></span>',
+									'</span>',
+								'</span>',
+								'<span class="cooleriot-table-cell text-center iot-col-12_5">',
+									'<span class="iot-mid-span asset-alert-icon">',
+										'<span class=" iot-icon iot-alert-icon"></span>',
+									'</span>',
+								'</span>',
+							'</li>',
+							'<li class="cooleriot-display-table asset-second-row">',
+								'<span class="cooleriot-table-cell text-center iot-col-12_5">{DoorCount}</span>',
+								'<span class="cooleriot-table-cell text-center iot-col-12_5">{[CoolerIoTMobile.util.Renderers.getTemperatureText(values)]}</span>',
+								'<span class="cooleriot-table-cell text-center iot-col-12_5">{[CoolerIoTMobile.util.Renderers.getPowerText(values)]}</span>',
+								'<span class="cooleriot-table-cell text-center iot-col-12_5">{[CoolerIoTMobile.util.Renderers.getPurityPerc(values)]}</span>',
+								'<span class="cooleriot-table-cell text-center iot-col-12_5">{[CoolerIoTMobile.util.Renderers.getStockPerc(values)]}</span>',
+								'<span class="cooleriot-table-cell text-center iot-col-12_5">{[CoolerIoTMobile.util.Renderers.dateRenderer(values.LastPing, "M/d/y h:i A", true)]}</span>',
+								'<span class="cooleriot-table-cell text-center iot-col-12_5">{DisplacementText}</span>',
+								'<span class="cooleriot-table-cell text-center iot-col-12_5">{Alerts}</span>',
+							'</li>',
+						'</ul></div>')
+    }
+});

@@ -1,0 +1,66 @@
+/*
+ * Ext JS Library 2.1
+ * Copyright(c) 2006-2008, Ext JS, LLC.
+ * licensing@extjs.com
+ * 
+ * http://extjs.com/license
+ */
+
+.x-portal .x-panel-dd-spacer {
+    margin-bottom:10px;
+}
+
+.x-portal-column 
+{
+	margin: 5px 5px;
+}
+
+.x-portlet {
+    margin-bottom:10px;
+}
+
+/* Clean up the look of the portlets */
+.x-portlet .x-panel-bwrap 
+{
+	border-color: inherit;
+}
+
+.x-portlet .x-panel-ml {
+    padding-left:2px;
+    border-color:inherit;
+}
+.x-portlet .x-panel-mr {
+    padding-right:2px;
+    border-color:inherit;
+}
+.x-portlet .x-panel-bl {
+    padding-left:2px;
+}
+
+.x-portlet .x-panel-br {
+    padding-right:2px;
+}
+.x-portlet .x-panel-body {
+    background:white;
+    border: 1px solid;
+    border-color:inherit;
+}
+.x-portlet .x-panel-mc {
+    padding-top:2px;
+    border-color:inherit;
+}
+
+/* leave room for resize bar on bottom only */
+.x-portlet .x-panel-bc .x-panel-footer {
+    padding-bottom:8px;
+}
+.x-portlet .x-panel-nofooter .x-panel-bc {
+    height:8px;
+}
+.x-portlet .x-resizable-handle-south
+{
+	bottom: 1px;
+	left:1px;
+	width:99%;
+}
+

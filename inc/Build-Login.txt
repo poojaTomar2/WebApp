@@ -1,0 +1,7 @@
+﻿inc/extJS{|FrameworkVersion|}/resources/css/ext-all.css
+css/style.css
+inc/extJS-ux/ext.css
+inc/extJS{|FrameworkVersion|}/adapter/ext/ext-base.js
+inc/extJS{|FrameworkVersion|}/ext-all.js
+inc/extJS-ux/ForgotPassword.js
+inc/extJS-ux/SystemStatus.js

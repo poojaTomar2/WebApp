@@ -1,0 +1,4 @@
+﻿3.0
+---
+* MonthPicker ux removed from framework
+* Grid ColumnModel: If you are reading col.editor.field.store, instead use (col.editor.field || col.editor).store

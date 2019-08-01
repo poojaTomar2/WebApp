@@ -1,0 +1,149 @@
+$base-color: #3598DB !default;
+
+@mixin modus-button($color) {
+	border-radius: 6px;
+	margin-bottom: 15px;
+	font-size: 1em;
+	background-color: $color !important;
+	border: none;
+	color: white;
+	text-decoration: none;
+
+	.x-button-label {
+		padding: 10px 0;
+	}
+
+	&.x-button-pressing {
+		background: darken($color, 10);
+	}
+}
+
+.x-list {
+	.x-list-item {
+		font-size: .6em;
+	}
+}
+
+.default {
+	@include modus-button($base-color);
+}
+
+.info {
+	@include modus-button(#2c97de);
+}
+
+.danger {
+	@include modus-button(#e94b35);
+}
+
+.x-accordion-list {
+
+	.x-list-item .x-innerhtml {
+		display: -webkit-box;
+	}
+
+	.down {
+		position: relative;
+		width: 0;
+		height: 0;
+		border: 8px solid transparent;
+		border-top-color: #999;
+		top: 4px;
+		margin-right: 0.4em;
+	}
+
+	.right {
+		position: relative;
+		width: 0;
+		height: 0;
+		border: 8px solid transparent;
+		border-left-color: #999;
+		top: 2px;
+		margin-right: 0.4em;
+	}
+
+	.x-list-item.x-item-selected .down {
+		border-top-color: #fff;
+	}
+
+	.x-list-item.x-item-selected .right {
+		border-left-color: #fff;
+	}
+}
+
+
+
+
+// The following two lines import the default Sencha Touch theme. If you are building
+// a new theme, remove them and the add your own CSS on top of the base CSS (which
+// is already included in your app.json file).
+$font-family: "Roboto";
+@import 'sencha-touch/default';
+@import 'sencha-touch/default/all';
+
+@import 'stylesheets/accordionlist';
+@include accordionlist;
+
+@include sencha-toolbar-ui('cooler-flat', #3498DB, 'flat');
+@include sencha-button-ui('home-btn',darken(#fff, 10%),'flat');
+@include sencha-button-ui('cooler-action-btn',darken(#2A3757, 1%),'flat');
+.x-toolbar-cooler-flat {
+    &.x-docked-top {
+        border-bottom: 0px solid;
+    }
+	.x-title{
+		text-shadow: none;
+	}
+}
+
+.x-button.x-button-home-btn{
+    background: none;
+    border: 1px solid #000000;
+    min-height: 0;
+    text-shadow: none;
+    line-height: auto;
+    padding: 10% 0.5em;
+    border-radius: 0 0;
+
+    & > * {
+        overflow: visible;
+    }
+
+    &.x-button-pressing, &.x-button-pressed {
+        background: none;
+
+        $mask-radial-glow: lighten($active-color, 50%);
+        @include background-image(radial-gradient(fade-out($mask-radial-glow, .3), fade-out($mask-radial-glow, 1) 24px));
+    }
+}
+
+.x-button.x-button-cooler-action-btn{
+    height: 2.5em;
+    border-radius: 0 0;
+}
+.components-view {
+	.accordion-list-item {
+		background: #ecf0f1;
+		padding-top: .6em;
+		border-bottom: #ddd solid 1px;
+
+		.x-button-plain {
+			color: #2c3e50;
+		}
+
+		&.x-accordion-list-content {
+			padding-bottom: .6em;
+		}
+
+		.x-field {
+			border-top: solid 1px #ccc;
+			border-left: solid 1px #ccc;
+			border-right: solid 1px #ccc;
+			margin-right: .6em;
+		}
+
+		.x-field-textarea {
+			border-bottom: solid 1px #ccc;
+		}
+	}
+}

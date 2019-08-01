@@ -1,0 +1,90 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="SiteMaster.master.cs" Inherits="SiteMaster" EnableViewState="false" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+	<link rel="shortcut icon" type="image/x-icon" href="~/images/favicon.ico" />
+	<title>eBest-IoT Reporting Tool</title>
+	<link rel='stylesheet' type='text/css' href='css/leaflet.css' />
+	<link rel='stylesheet' type='text/css' href='inc/extJS-ux/loader.css' />
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+	<asp:Literal runat="server" ID="litInclude"></asp:Literal>
+	<asp:Literal runat="server" ID="litGMap"></asp:Literal>
+	<script src="//d3js.org/d3.v3.min.js"></script>
+	<script src="js/markerclusterer_compiled.js"></script>
+	<script src="inc/exif-js.js"></script>
+	<script src="inc/fabric.min.js"></script>
+    <script src="js/leaflet.js"></script>
+	<script src="js/oms.min.js"></script>
+	<script src="js/jquery.fittext.js"></script>
+	<script type="text/javascript">
+		function Logout() {
+			if (window.location.hostname == "cch-portal.ebest-iot.com" || window.location.hostname == "cch-portal-qa.ebest-iot.com") {
+				window.open('https://sso.cchellenic.com/adfs/ls/?wa=wsignout1.0', 'width=5;height=5;');
+			}
+		}
+	</script>
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+</head>
+<body>
+	<!--div id="loading">
+			<div class="loading-indicator"><img src="extJS/resources/images/default/shared/large-loading.gif" width="32" height="32" style="margin-right:8px;float:left;vertical-align:top;"/>TLS Backoffice<br /><span id="loading-msg">Loading  styles and images...</span></div>
+			</div-->
+	<div id="north">
+		<div class="logo" style="width: 150px; text-align: center;">
+			<a href="//ebest-iot.com/" title="eBest-IoT" target="_blank">
+				<asp:Image ID="imgCompanyLogo" ImageAlign="Middle" ImageUrl="~/images/invisible-icon.png" runat="server" /></a>
+		</div>
+		<div class="headerRow">
+			<div class="headerContainer">
+				<ul class="header">
+					<li><span>Welcome
+						<asp:Literal runat="server" ID="lblUserName" /></span></li>
+				</ul>
+				<span class="headerRight">&nbsp;</span>
+				<ul class="topLinks x-hidden" id="topLinks">
+					<li>
+
+						<div id="google_translate_element" class="pull-right" ></div>
+						<script type="text/javascript">
+							function onGoogleTranslateError() {
+								var script = document.createElement("script");
+								script.setAttribute("type", "text/javascript");
+								script.setAttribute("async", "async");
+								script.setAttribute("src", "//translate.google.cn/translate_a/element.js?cb=googleTranslateElementInit");
+								document.getElementsByTagName("head")[0].appendChild(script);
+							}
+
+							function googleTranslateElementInit() {
+								new google.translate.TranslateElement({
+									pageLanguage: 'en-us',
+									layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+								}, 'google_translate_element');
+							}
+						</script>
+						<script async type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" onerror="onGoogleTranslateError()"></script>
+
+
+					</li>
+					<li runat="server" id="switchClient" visible="false"><a href="javascript:Cooler.SwitchClient.show();">Filter Client</a></li>
+					<li><a href="javascript:DA.ChangePassword.Show();">Change Password</a></li>
+					<li>
+						<form id="aspNetForm" runat="server">
+							<asp:LinkButton runat="server" ID="btnLogout" Text="Logout" OnClick="btnLogout_Click" OnClientClick="Logout();" />
+						</form>
+					</li>
+				</ul>
+			</div>
+			<div class="imageInfo x-hidden" id="imageInfo">
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div id="south"></div>
+
+	<script type='text/javascript' src='js/Ext.ux.GMapPanel3.js'></script>
+	<%--<script type='text/javascript' src='inc/extJS-ux/GMapPanel.js'></script>--%>
+</body>
+</html>

@@ -1,0 +1,6 @@
+﻿:app-tracker.js
+inc/extJS-ux/tracker/Ticket.js
+inc/extJS-ux/tracker/Project.js
+inc/extJS-ux/tracker/ProjectMain.js
+inc/extJS-ux/tracker/ProjectReport.js
+inc/extJS-ux/tracker/ProjectUser.js
