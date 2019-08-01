@@ -10,7 +10,7 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  solution: '**/*.sln'
+  solution: 'WebApp/mobile_new_ui/iOtWindows/iOtAds/iOtAds.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
